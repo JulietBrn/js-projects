@@ -1,0 +1,206 @@
+* { 
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+.main-title {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Forum';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.second-title {
+    margin: 20px auto;
+    color: #0C0C0E;
+    text-align: center;
+    font-family: 'Forum';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.second-title_light {
+    color: #BB945F;
+}
+
+.text {
+    color: #000;
+    font-family: 'Inter';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+}
+.text_bold {
+    font-weight: 700;
+    line-height: normal;
+}
+.text_center {
+    text-align: center;
+
+}
+.line {
+    border: none;
+    border-top: 1px solid #0C0C0E;
+    width: 50px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+
+}
+.img-box {
+    display: flex;
+    justify-content: center;
+}
+.img-box__item {
+    margin-right: 25px;
+    width: 450px;
+    height: 560px;
+}
+.img-box__item:last-child {
+    margin-right: 0;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.pagination-carousel {
+    display: flex;
+    justify-content: center;
+}
+.slide-pagination {
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    background: #0C0C0E;
+    margin: 5px;
+    cursor: pointer;
+    
+}
+.slide-pagination_active {
+    background: #BB945F;
+}
+.section-favorites__box > * {
+    padding: 5px;
+}
+.box__label:not(:last-child) {
+    margin-right: 90px;
+}
+.box__input {
+    margin-right: 20px;
+}
+.card {
+    position: relative;
+    width: 550px;
+    height: 555px;
+    padding: 15px 0 15px 20px;
+    border: 1px solid #000;
+}
+.card__line {
+    width: 60px;
+    border-bottom: 1px solid #BB945F;
+}
+.card__title {
+    color: #000;
+    font-family: 'Forum';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+.card__book-title {
+    color: #000;
+    font-family: 'Inter';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.book-title {
+    text-transform: capitalize;
+    line-height: 40px;
+}
+.card__description{
+    width: 355px;
+    color: #000;
+    font-family: 'Inter';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.button-buy {
+    padding: 9px 27px;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    color: #0C0C0E;
+    background: none;
+    text-align: center;
+    font-family: 'Inter';
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+.card__image{
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+}
+.spring, .summer, .autumn {
+    display: none;
+}
+.winter {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+}
+.menu-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+/* .menu {
+    display: grid;
+    gap: 60px;
+    grid-template-columns: 197px 100px min-content;
+}
+.menu__title {
+    grid-column: 1/-1;
+    text-align: start;
+}
+ */
+.menu__title {
+    text-align: start;
+}
+.menu__line {
+    width: 100px;
+    margin: auto;
+}
+.table {
+    border-spacing:  60px 40px;
+}
