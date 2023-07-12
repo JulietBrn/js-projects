@@ -8,24 +8,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section>
-        <header>
-            <div></div>
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__list-item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__list-item"><a href="#section-favorites" class="nav__link">Favorites</a></li>
-                    <li class="nav__list-item"><a href="#section-coffee-shop" class="nav__link">Coffee shop</a></li>
-                    <li class="nav__list-item"><a href="#section-our-contacts" class="nav__link">Our Contacts</a></li>
-                    <li class="nav__list-item"><a href="#Digital Library Cards" class="nav__link"></a>Digital Library Cards</li>
-                    <li class="nav__list-item"><a href="" class="nav__link"></a></li>
-                </ul>
-            </nav>
-        </header>
-        <h1 class="main-title">Welcome to the Brooklyn Library</h1>
-    </section>
+    <header>
+        
+        <div class="header-wrapper">
+            <a class="welcome-link" href="">Brooklyn Public Library</a>
+            <div class="nav-wrapper">
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__list-item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__list-item"><a href="#section-favorites" class="nav__link">Favorites</a></li>
+                        <li class="nav__list-item"><a href="#section-coffee-shop" class="nav__link">Coffee shop</a></li>
+                        <li class="nav__list-item"><a href="#section-our-contacts" class="nav__link">Contacts</a></li>
+                        <li class="nav__list-item"><a href="#Digital Library Cards" class="nav__link">Library Card</a></li>
+                    </ul>
+                </nav>
+                <img src="icons/icon_profile.svg" alt="icon-profile">
+            </div>
+            
+        </div>
+        <section class="welcome">
+            <h1 class="main-title">Welcome<br>to the Brooklyn<br>Library</h1>
+        </section>
+    </header>
 
-    <main>
+
+    <main class="container">
         <section id="section-about">
             <h2 class="second-title">About</h2>
             <div><hr class="line"></div>
@@ -59,7 +66,7 @@
                     <label class="text box__label" for="autumn">Autumn</label>
                 </form>
             </div>
-            <div class="cards-box">
+            <div class="cards-box  mb-40">
                 <!-- winter -->
                 <div class="winter">
                     <!-- 1 -->
@@ -73,7 +80,7 @@
                         <div class="card__image"><img  src="img/book-1.jpg" alt="book-image"></div>
                     </div>
                     <!-- 2 -->
-                    <div class="card">
+                    <div class="card card-2">
                         <p class="card__title ">Staff Picks</p>
                         <hr class="card__line mb-20">
                         <p class="card__book-title ">Cackle</p>
@@ -83,7 +90,7 @@
                         <div class="card__image"><img  src="img/book-2.jpg" alt="book-image"></div>
                     </div>
                     <!-- 3 -->
-                    <div class="card">
+                    <div class="card ">
                         <p class="card__title ">Staff Picks</p>
                         <hr class="card__line mb-20">
                         <p class="card__book-title ">Dante: Poet of the Secular World</p>
@@ -93,7 +100,7 @@
                         <div class="card__image"><img  src="img/book-3.jpg" alt="book-image"></div>
                     </div>
                     <!-- 4 -->
-                    <div class="card">
+                    <div class="card card-2">
                         <p class="card__title ">Staff Picks</p>
                         <hr class="card__line mb-20">
                         <p class="card__book-title ">The Last Queen</p>
@@ -118,7 +125,7 @@
                         <div class="card__image"><img  src="img/book-5.jpg" alt="book-image"></div>
                     </div>
                     <!-- 6 -->
-                    <div class="card">
+                    <div class="card card-2">
                         <p class="card__title ">Staff Picks</p>
                         <hr class="card__line mb-20">
                         <p class="card__book-title ">Carry: A Memoir of Survival on Stolen Land</p>
@@ -139,7 +146,7 @@
                         <div class="card__image"><img  src="img/book-6.jpg" alt="book-image"></div>
                     </div>
                     <!-- 8 -->
-                    <div class="card">
+                    <div class="card card-2">
                         <p class="card__title ">Staff Picks</p>
                         <hr class="card__line mb-20">
                         <p class="card__book-title ">Dominicana</p>
@@ -162,7 +169,7 @@
                         <div class="card__image"><img  src="img/book-9.jpg" alt="book-image"></div>
                     </div>
                     <!-- 10 -->
-                    <div class="card">
+                    <div class="card card-2">
                         <p class="card__title ">Staff Picks</p>
                         <hr class="card__line mb-20">
                         <p class="card__book-title ">Let My People Go Surfing</p>
@@ -183,7 +190,7 @@
                         <div class="card__image"><img  src="img/book-11.jpg" alt="book-image"></div>
                     </div>
                     <!-- 12 -->
-                    <div class="card">
+                    <div class="card card-2">
                         <p class="card__title ">Staff Picks</p>
                         <hr class="card__line mb-20">
                         <p class="card__book-title ">Shark Dialogues: A Novel</p>
@@ -206,7 +213,7 @@
                         <div class="card__image"><img  src="img/book-13.jpg" alt="book-image"></div>
                     </div>
                     <!-- 14 -->
-                    <div class="card">
+                    <div class="card card-2">
                         <p class="card__title ">Staff Picks</p>
                         <hr class="card__line mb-20">
                         <p class="card__book-title ">The Great Fire</p>
@@ -227,7 +234,7 @@
                         <div class="card__image"><img  src="img/book-15.jpg" alt="book-image"></div>
                     </div>
                     <!-- 16 -->
-                    <div class="card">
+                    <div class="card card-2">
                         <p class="card__title ">Staff Picks</p>
                         <hr class="card__line mb-20">
                         <p class="card__book-title ">Slug: And Other Stories</p>
@@ -247,7 +254,7 @@
                 
                 <div class="menu menu__coffee">
                     <h2 class="second-title second-title_light menu__title">Coffee &amp; Tea</h2>
-                    <table class="table">
+                    <table class="table table_left">
                         <tr class="text"> <!-- Строка -->
                             <td>Cold Brew Coffee</td> <!-- Ячейка -->
                             <td><hr class="menu__line"></td>
@@ -280,20 +287,116 @@
                         </tr>
                     </table>
                 </div>
+                <div class="menu menu__desserts">
+                    <h2 class="second-title second-title_light menu__title menu__title_right">Desserts &amp; Cakes</h2>
+                    <table class="table table_right">
+                        <tr class="text"> <!-- Строка -->
+                            <td>Forest Gateau</td> <!-- Ячейка -->
+                            <td><hr class="menu__line"></td>
+                            <td>$16</td>
+                        </tr>
+                        <tr class="text"> <!-- Строка -->
+                            <td>Blue Moon</td> <!-- Ячейка -->
+                            <td><hr class="menu__line"></td>
+                            <td>$16</td>
+                        </tr>
+                        <tr class="text"> <!-- Строка -->
+                            <td>Truffle Cake</td> <!-- Ячейка -->
+                            <td><hr class="menu__line"></td>
+                            <td>$15</td>
+                        </tr>
+                        <tr class="text"> <!-- Строка -->
+                            <td>Chocolate Cake</td> <!-- Ячейка -->
+                            <td><hr class="menu__line"></td>
+                            <td>$18</td>
+                        </tr>
+                        <tr class="text"> <!-- Строка -->
+                            <td>Poet’s Dream Cake</td> <!-- Ячейка -->
+                            <td><hr class="menu__line"></td>
+                            <td>$16</td>
+                        </tr>
+                        <tr class="text"> <!-- Строка -->
+                            <td>Pineapple Cake</td> <!-- Ячейка -->
+                            <td><hr class="menu__line"></td>
+                            <td>$14</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </section>
         <section id="section-our-contacts">
             <h2 class="second-title">Our Contacts</h2>
             <div><hr class="line"></div>
-            <div></div>
+            <div class="contacts-wrapper mb-40">
+                <div class="contacts__details">
+                    <p class="text text_bold mb-40">For all Library inquiries:</p>
+                    <ul class="contacts__list text mb-40">
+                        <li class="contacts__list-item">Please call (617) 730-2370</li>
+                        <li class="contacts__list-item">For TTY service, please call (617) 730-2370</li>
+                        <li class="contacts__list-item">Putterham Library: (617) 730-2385</li>
+                    </ul>
+                    <p class="text text_bold mb-20">Senior Staff</p>
+                    <p class="text">Library Director: <span class="text_bold">Amanda Hirst</span></p>
+                </div>
+                <div class="contacts__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.3968221166251!2d-73.99207873587703!3d40.69583969375564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b6395abd%3A0x5b6c5e44eb578313!2sBrooklyn%20Public%20Library%20-%20Brooklyn%20Heights%20Branch!5e0!3m2!1sru!2ssk!4v1689166430289!5m2!1sru!2ssk" width="696" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </section>
-        <section id="section-digital-library-cards">
+        <section id="section-digital-library-cards" class=" mb-40">
             <h2 class="second-title">Digital Library Cards</h2>
             <div><hr class="line"></div>
-            <div></div>
+            <div class="lib-cards-wrapper">
+                <div class="find-your-card">
+                    <p class="find-your-card__title">Find your Library card</p>
+                    <div class="library-card card-wrapper">
+                        <div class="card-wrapper__inside">
+                            <p class="library-card__title mb-20">Brooklyn Public Library</p>
+                            <form class="input-wrapper">
+                                <label for="name"></label>
+                                <input type="text" id="name" placeholder="Reader's name" class="library-card__title library-card__input-field">
+                                <label for="card-number"></label>
+                                <input type="number" id="card-number" placeholder="Card number" class="library-card__title library-card__input-field">
+                            </form>
+                        </div>
+                        <div class="button-wrapper"><button class="button button-check-card ">Check the card</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="get-card">
+                    <p class="get-card__title">Get a reader card</p>
+                    <p class="get-card__description text">You will be able to see a reader card after logging into account or you can register a new account</p>
+                    <div class="get-card__button-box button-box">
+                        <button class="button button-sign-up">Sign Up</button>
+                        <button class="button button-log-in">Log in</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    
-    <footer></footer>
+
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <p class="address"><a target="_blank" href="https://www.google.com/maps/place/%D0%9A%D1%8D%D0%B4%D0%BC%D0%B0%D0%BD-%D0%9F%D0%BB%D0%B0%D0%B7%D0%B0,+Cadman+Plaza+E,+Brooklyn,+NY+11201,+%D0%A1%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5+%D0%A8%D1%82%D0%B0%D1%82%D1%8B/@40.6976723,-73.9906433,17z/data=!4m14!1m7!3m6!1s0x89c25a365964841d:0xf86044967962ee82!2z0JrRjdC00LzQsNC9LdCf0LvQsNC30LAsIENhZG1hbiBQbGF6YSBFLCBCcm9va2x5biwgTlkgMTEyMDEsINCh0L7QtdC00LjQvdC10L3QvdGL0LUg0KjRgtCw0YLRiw!8m2!3d40.6976723!4d-73.9906433!16zL20vMGZna210!3m5!1s0x89c25a365964841d:0xf86044967962ee82!8m2!3d40.6976723!4d-73.9906433!16zL20vMGZna210?authuser=0">286 Cadman Plaza, New York,<br>NY 11238, United States</a></p>
+            <div class="schedule schedule-weekdays">
+                <p>Mon - Fri<br>08:00 am - 07:00 pm</p>
+            </div>
+            <div class="social-icons-box">
+                <a target="_blank" class="icon-item" href="http://www.twitter.com/bklynlibrary"><img src="icons/u_twitter-alt.svg" alt="twitter-icon"></a>
+                <a target="_blank" class="icon-item" href="http://www.instagram.com/bklynlibrary"><img src="icons/u_instagram.svg" alt="instagram-icon"></a>
+                <a target="_blank" class="icon-item" href="http://www.facebook.com/brooklynpubliclibrary"><img src="icons/u_facebook-f.svg" alt="facebook-icon"></a>
+            </div>
+            <div class="schedule schedule-weekends">
+                <p>Sat - Sun<br>10:00 am - 06:00 pm</p>
+            </div>
+        </div>
+        <hr class="footer__line">
+        <div class="footer__rs">
+            <p class="footer__year ">2023</p>
+            <p class="footer__school-name "><a target="_blank" href="https://rs.school/js-stage0/">The Rolling Scopes School</a></p>
+            <p class="footer__my-name"><a target="_blank" href="https://github.com/JulietBrn">Julia</a></p>
+        </div>
+    </footer>
 </body>
 </html>

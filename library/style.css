@@ -1,9 +1,13 @@
 * { 
     margin: 0;
     padding: 0;
+    
 }
 li {
     list-style: none;
+}
+a {
+    text-decoration: none;
 }
 
 .main-title {
@@ -16,6 +20,10 @@ li {
     line-height: 50px;
     letter-spacing: 3px;
     text-transform: uppercase;
+    background: #0C0C0E;
+    position: absolute;
+    padding: 35px 40px;
+    top: 33%;
 }
 .second-title {
     margin: 20px auto;
@@ -42,6 +50,7 @@ li {
     line-height: 40px;
     letter-spacing: 2px;
 }
+
 .text_bold {
     font-weight: 700;
     line-height: normal;
@@ -56,8 +65,66 @@ li {
     width: 50px;
     margin: 0 auto;
     margin-bottom: 40px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.mb-40 {
+    margin-bottom: 40px;
+}
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 1440px;
+    overflow: hidden;
+}
+
+/* welcome */
+header {
+    width: 1440px;
+    margin: 0 auto;
+}
+header a {
+    color: #FFF;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+}
+.header-wrapper {
+    background: #0C0C0E;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.nav-wrapper {
+    display: flex;
+}
+.welcome-link {
+    font-family: 'Forum';
+    font-size: 30px;
+    letter-spacing: 0.6px;
+}
+.nav__list {
+    margin-right: 40px;
+    display: flex;
+}
+.nav__link {
+    font-family: 'Inter';
+    font-size: 20px;
 
 }
+.nav__list-item:not(:last-child) {
+    margin-right: 30px;
+}
+/*  */
+.welcome {
+    background: url(img/bg-welcome.jpg) center/cover no-repeat;
+    min-height: 600px;
+    position: relative;
+
+}
+
+/* section-about */
 .img-box {
     display: flex;
     justify-content: center;
@@ -70,13 +137,6 @@ li {
 .img-box__item:last-child {
     margin-right: 0;
 }
-.mb-20 {
-    margin-bottom: 20px;
-}
-.mb-40 {
-    margin-bottom: 40px;
-}
-
 .pagination-carousel {
     display: flex;
     justify-content: center;
@@ -93,6 +153,8 @@ li {
 .slide-pagination_active {
     background: #BB945F;
 }
+
+/* favorites */
 .section-favorites__box > * {
     padding: 5px;
 }
@@ -149,20 +211,25 @@ li {
     text-transform: capitalize;
     margin-bottom: 15px;
 }
-
-.button-buy {
-    padding: 9px 27px;
+.button {
     border-radius: 2px;
     border: 1px solid #0C0C0E;
     color: #0C0C0E;
     background: none;
     text-align: center;
     font-family: 'Inter';
-    font-size: 10px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: 1px;
+}
+.button-buy {
+    padding: 9px 27px;
+    font-size: 10px;
+}
+.button-check-card {
+    font-size: 20px;
+    padding: 10px 40px;
 }
 .card__image{
     position: absolute;
@@ -179,7 +246,13 @@ li {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     row-gap: 40px;
+    justify-content: space-between;
+} 
+.card-2 {
+    justify-self: end;
 }
+
+/* coffee-shop */
 .menu-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -197,10 +270,175 @@ li {
 .menu__title {
     text-align: start;
 }
+.menu__title_right {
+    text-align: end;
+}
 .menu__line {
     width: 100px;
     margin: auto;
 }
 .table {
     border-spacing:  60px 40px;
+}
+.table_left {
+    transform: translateX(-60px);
+}
+.table_right {
+    transform: translateX(60px);
+}
+.table_right td {
+    text-align: end;
+}
+.menu__desserts {
+    justify-self: end;
+}
+
+/* contacts */
+.contacts-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.contacts__list-item {
+    margin-bottom: 20px;
+}
+
+/* digital-library-cards */
+.lib-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.find-your-card {
+    justify-items: center;
+
+}
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid #BB945F;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 600px;
+}
+.card-wrapper__inside {
+    background: #BB945F;
+    margin: 20px;
+    padding: 20px;
+    padding-bottom: 25px;
+}
+.find-your-card__title {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #000;
+    font-family: 'Inter';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+.library-card {
+    margin: 0 auto ;
+}
+.library-card__title {
+    color: #000;
+    font-family: 'Forum';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0.6px;
+}
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.input-wrapper #name {
+    margin-bottom: 25px;
+}
+.button-wrapper {
+    align-self: center;
+    margin-bottom: 30px;
+}
+.library-card__input-field {
+    border-radius: 10px;
+    border: none;
+    background: #FFF;
+    padding: 8px 20px;
+    color: #8E8E8E;
+}
+.get-card {
+    text-align: end;
+    width: 456px;
+    justify-self: end;
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    row-gap: 35px;
+
+}
+.get-card__title {
+    font-family: 'Forum';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+.button-sign-up, .button-log-in {
+    width: 75px;
+    /* height: 30px; */
+    padding: 10px 0px;
+    font-size: 10px;
+}
+.button-sign-up {
+    margin-right: 20px;
+}
+
+/* footer */
+.footer {
+    width: 1440px;
+    margin: 0 auto;
+    background: #0C0C0E;
+    color: white;
+    padding: 20px;
+    padding-bottom: 0;
+} 
+.footer a {
+    color: white;
+}
+.footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, min-content);
+    align-items: center;
+    row-gap: 10px;
+    margin-bottom: 30px;
+}
+.icon-item {
+    margin-right: 20px;
+}
+.schedule {
+    justify-self: end;
+    text-align: end;
+}
+.footer__line {
+    border: none;
+
+    border-top: 1px solid white;
+    height: 1px;
+}
+.footer__rs {
+    padding-top: 44px;
+    padding-bottom: 44px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer__rs {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
