@@ -6,20 +6,37 @@
     
     <title>Brooklyn Public Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/fav-icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/fav-icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/fav-icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/fav-icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/fav-icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/fav-icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/fav-icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/fav-icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/fav-icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icons/fav-icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/fav-icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/fav-icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/fav-icon/favicon-16x16.png">
+    <link rel="manifest" href="icons/fav-icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="icons/fav-icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
     <header>
         
         <div class="header-wrapper">
-            <a class="welcome-link" href="">Brooklyn Public Library</a>
+            <p class="welcome-link">Brooklyn Public Library</p>
             <div class="nav-wrapper">
                 <nav class="nav">
                     <ul class="nav__list">
-                        <li class="nav__list-item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__list-item"><a href="#section-about" class="nav__link">About</a></li>
                         <li class="nav__list-item"><a href="#section-favorites" class="nav__link">Favorites</a></li>
                         <li class="nav__list-item"><a href="#section-coffee-shop" class="nav__link">Coffee shop</a></li>
                         <li class="nav__list-item"><a href="#section-our-contacts" class="nav__link">Contacts</a></li>
-                        <li class="nav__list-item"><a href="#Digital Library Cards" class="nav__link">Library Card</a></li>
+                        <li class="nav__list-item"><a href="#digital-library-cards" class="nav__link">Library Card</a></li>
                     </ul>
                 </nav>
                 <img src="icons/icon_profile.svg" alt="icon-profile">
@@ -38,26 +55,32 @@
             <div><hr class="line"></div>
             <p class="text mb-20 text_center">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
             
-            <div class="img-box mb-40">
+            <div class="img-box mb-35">
                 <img src="img/image-1.jpg" alt="image library" class="img-box__item">
                 <img src="img/image-2.jpg" alt="image library" class="img-box__item">
                 <img src="img/image-3.jpg" alt="image library" class="img-box__item">
             </div>
-            <div class="pagination-carousel mb-40">
-                <div class="slide-pagination slide-pagination_active"></div>
-                <div class="slide-pagination"></div>
-                <div class="slide-pagination"></div>
+            <div class="pagination-carousel mb-35">
+                <div class="pagination-wrapper">
+                    <div class="slide-pagination slide-pagination_active"></div>
+                </div>
+                <div class="pagination-wrapper">
+                    <div class="slide-pagination"></div>
+                </div>
+                <div class="pagination-wrapper">
+                    <div class="slide-pagination"></div>
+                </div>
             </div>
         </section>
         <section id="section-favorites">
             <h2 class="second-title">Favorites</h2>
             <div><hr class="line"></div>
             <div class="season-selector">
-                <p class="text text_bold mb-40">Pick favorites of season</p>
+                <p class="text text_bold mb-20">Pick favorites of season</p>
                 
-                <form class="section-favorites__box box mb-40">
-                    <input class="box__input" id="winter" type="radio" name="season">
-                    <label class="text text_bold box__label" for="winter">Winter</label>
+                <form class="section-favorites__box box mb-20">
+                    <input class="box__input" id="winter" type="radio" name="season" checked>
+                    <label class="text box__label" for="winter">Winter</label>
                     <input class="box__input" id="spring" type="radio" name="season">
                     <label class="text box__label" for="spring">Spring</label>
                     <input class="box__input" id="summer" type="radio" name="season">
@@ -106,7 +129,7 @@
                         <p class="card__book-title ">The Last Queen</p>
                         <p class="card__author text_bold mb-20"><span class="book-title">By Clive Irving</span></p>
                         <p class="card__description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-                        <button class="button button-buy" alt="disabled">Own</button>
+                        <button disabled class="button button-own">Own</button>
                         <div class="card__image"><img  src="img/book-4.jpg" alt="book-image"></div>
                     </div>
                 </div>
@@ -152,7 +175,7 @@
                         <p class="card__book-title ">Dominicana</p>
                         <p class="card__author text_bold mb-20"><span class="book-title">By Angie Cruz</span></p>
                         <p class="card__description">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
-                        <button class="button button-buy" alt="disabled">Own</button>
+                        <button disabled class="button button-own">Own</button>
                         <div class="card__image"><img  src="img/book-8.jpg" alt="book-image"></div>
                     </div>
                 </div>
@@ -196,7 +219,7 @@
                         <p class="card__book-title ">Shark Dialogues: A Novel</p>
                         <p class="card__author text_bold mb-20"><span class="book-title">By Kiana Davenport</span></p>
                         <p class="card__description">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.</p>
-                        <button class="button button-buy" alt="disabled">Own</button>
+                        <button disabled class="button button-own">Own</button>
                         <div class="card__image"><img  src="img/book-12.jpg" alt="book-image"></div>
                     </div>
                 </div>
@@ -240,7 +263,7 @@
                         <p class="card__book-title ">Slug: And Other Stories</p>
                         <p class="card__author text_bold mb-20"><span class="book-title">By Megan Milks</span></p>
                         <p class="card__description">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.</p>
-                        <button class="button button-buy" alt="disabled">Own</button>
+                        <button disabled class="button button-own">Own</button>
                         <div class="card__image"><img  src="img/book-16.jpg" alt="book-image"></div>
                     </div>
                 </div>
@@ -253,7 +276,7 @@
             <div class="menu-wrapper">
                 
                 <div class="menu menu__coffee">
-                    <h2 class="second-title second-title_light menu__title">Coffee &amp; Tea</h2>
+                    <h3 class="second-title second-title_light menu__title">Coffee &amp; Tea</h3>
                     <table class="table table_left">
                         <tr class="text"> <!-- Строка -->
                             <td>Cold Brew Coffee</td> <!-- Ячейка -->
@@ -288,7 +311,7 @@
                     </table>
                 </div>
                 <div class="menu menu__desserts">
-                    <h2 class="second-title second-title_light menu__title menu__title_right">Desserts &amp; Cakes</h2>
+                    <h3 class="second-title second-title_light menu__title menu__title_right">Desserts &amp; Cakes</h3>
                     <table class="table table_right">
                         <tr class="text"> <!-- Строка -->
                             <td>Forest Gateau</td> <!-- Ячейка -->
@@ -331,19 +354,19 @@
                 <div class="contacts__details">
                     <p class="text text_bold mb-40">For all Library inquiries:</p>
                     <ul class="contacts__list text mb-40">
-                        <li class="contacts__list-item">Please call (617) 730-2370</li>
-                        <li class="contacts__list-item">For TTY service, please call (617) 730-2370</li>
-                        <li class="contacts__list-item">Putterham Library: (617) 730-2385</li>
+                        <li class="contacts__list-item">Please call <a href="tel:+(617)730-2370">(617) 730-2370</a></li>
+                        <li class="contacts__list-item">For TTY service, please call <a href="tel:+(617)730-2370">(617) 730-2370</a></li>
+                        <li class="contacts__list-item">Putterham Library: <a href="(617)730-2385">(617) 730-2385</a></li>
                     </ul>
                     <p class="text text_bold mb-20">Senior Staff</p>
-                    <p class="text">Library Director: <span class="text_bold">Amanda Hirst</span></p>
+                    <p class="text">Library Director: <a class="text_bold" href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></p>
                 </div>
                 <div class="contacts__map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.3968221166251!2d-73.99207873587703!3d40.69583969375564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b6395abd%3A0x5b6c5e44eb578313!2sBrooklyn%20Public%20Library%20-%20Brooklyn%20Heights%20Branch!5e0!3m2!1sru!2ssk!4v1689166430289!5m2!1sru!2ssk" width="696" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
-        <section id="section-digital-library-cards" class=" mb-40">
+        <section id="digital-library-cards" class=" mb-40">
             <h2 class="second-title">Digital Library Cards</h2>
             <div><hr class="line"></div>
             <div class="lib-cards-wrapper">
@@ -382,11 +405,11 @@
             <div class="schedule schedule-weekdays">
                 <p>Mon - Fri<br>08:00 am - 07:00 pm</p>
             </div>
-            <div class="social-icons-box">
-                <a target="_blank" class="icon-item" href="http://www.twitter.com/bklynlibrary"><img src="icons/u_twitter-alt.svg" alt="twitter-icon"></a>
-                <a target="_blank" class="icon-item" href="http://www.instagram.com/bklynlibrary"><img src="icons/u_instagram.svg" alt="instagram-icon"></a>
-                <a target="_blank" class="icon-item" href="http://www.facebook.com/brooklynpubliclibrary"><img src="icons/u_facebook-f.svg" alt="facebook-icon"></a>
-            </div>
+            <ul class="social-icons-box">
+                <li class="icon-item"><a target="_blank"  href="http://www.twitter.com/bklynlibrary"><img src="icons/u_twitter-alt.svg" alt="twitter-icon"></a></li>
+                <li class="icon-item"><a target="_blank"  href="http://www.instagram.com/bklynlibrary"><img src="icons/u_instagram.svg" alt="instagram-icon"></a></li>
+                <li class="icon-item"><a target="_blank"  href="http://www.facebook.com/brooklynpubliclibrary"><img src="icons/u_facebook-f.svg" alt="facebook-icon"></a></li>
+            </ul>
             <div class="schedule schedule-weekends">
                 <p>Sat - Sun<br>10:00 am - 06:00 pm</p>
             </div>
@@ -400,3 +423,4 @@
     </footer>
 </body>
 </html>
+

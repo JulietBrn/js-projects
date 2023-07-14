@@ -9,51 +9,75 @@ li {
 a {
     text-decoration: none;
 }
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Forum';
+    src:local('Forum');
+    src: url(fonts/Forum-Regular.ttf);
+}
+@font-face {
+    font-family: 'InterReg';
+    /* src:local('Inter'); */
+    src: url(fonts/Inter-Regular.ttf);
+}
+@font-face {
+    font-family: 'InterBold';
+    /* src:local('Inter'); */
+    src: url(fonts/Inter-Bold.ttf);
+}
+body {
+    font-family: 'Forum';
+    box-sizing: border-box;
+}
+main {
+    overflow: hidden;
+}
+
 
 .main-title {
     color: #FFF;
     text-align: center;
-    font-family: 'Forum';
     font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 50px;
     letter-spacing: 3px;
+    font-weight: 400;
     text-transform: uppercase;
     background: #0C0C0E;
     position: absolute;
-    padding: 35px 40px;
-    top: 33%;
+    padding: 35px 120px;
+    top: 37%;
 }
 .second-title {
-    margin: 20px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0px auto;
     color: #0C0C0E;
     text-align: center;
-    font-family: 'Forum';
-    font-size: 40px;
-    font-style: normal;
     font-weight: 400;
+    font-size: 40px;
     line-height: 40px;
     letter-spacing: 2px;
     text-transform: capitalize;
 }
 .second-title_light {
     color: #BB945F;
+    padding: 0;
 }
 
 .text {
     color: #000;
-    font-family: 'Inter';
+    font-family: 'InterReg';
     font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 40px;
     letter-spacing: 2px;
 }
 
 .text_bold {
     font-weight: 700;
-    line-height: normal;
+    color:#000;
 }
 .text_center {
     text-align: center;
@@ -69,14 +93,17 @@ a {
 .mb-20 {
     margin-bottom: 20px;
 }
+.mb-35 {
+    margin-bottom: 35px;
+}
 .mb-40 {
     margin-bottom: 40px;
 }
 .container {
     margin: 0 auto;
     padding: 0 20px;
-    width: 1440px;
-    overflow: hidden;
+    width: 1400px;
+    /* overflow: hidden; */
 }
 
 /* welcome */
@@ -86,7 +113,6 @@ header {
 }
 header a {
     color: #FFF;
-    font-style: normal;
     font-weight: 400;
     line-height: 50px;
 }
@@ -100,7 +126,6 @@ header a {
     display: flex;
 }
 .welcome-link {
-    font-family: 'Forum';
     font-size: 30px;
     letter-spacing: 0.6px;
 }
@@ -109,9 +134,12 @@ header a {
     display: flex;
 }
 .nav__link {
-    font-family: 'Inter';
+    transition: .4s all;
+    font-family: 'InterReg';
     font-size: 20px;
-
+}
+.nav__link:hover {
+    text-decoration-line: underline;
 }
 .nav__list-item:not(:last-child) {
     margin-right: 30px;
@@ -141,13 +169,16 @@ header a {
     display: flex;
     justify-content: center;
 }
+.pagination-wrapper {
+    padding: 5px;
+    cursor: pointer;
+}
 .slide-pagination {
     width: 16px;
     height: 16px;
     border-radius: 50px;
     background: #0C0C0E;
-    margin: 5px;
-    cursor: pointer;
+    
     
 }
 .slide-pagination_active {
@@ -158,16 +189,28 @@ header a {
 .section-favorites__box > * {
     padding: 5px;
 }
+.box__input:checked{
+    color: black;
+    background-color: black;
+    border: black
+}
+.box__label {
+    cursor: pointer;
+}
 .box__label:not(:last-child) {
-    margin-right: 90px;
+    margin-right: 80px;
+}
+.box__input:checked + .box__label {
+    font-weight: 700;
 }
 .box__input {
-    margin-right: 20px;
+    padding-right: 15px;
+    cursor: pointer;
 }
 .card {
     position: relative;
-    width: 550px;
-    height: 555px;
+    width: 530px;
+    height: 525px;
     padding: 15px 0 15px 20px;
     border: 1px solid #000;
 }
@@ -177,9 +220,7 @@ header a {
 }
 .card__title {
     color: #000;
-    font-family: 'Forum';
     font-size: 20px;
-    font-style: normal;
     font-weight: 400;
     line-height: 40px;
     letter-spacing: 2px;
@@ -187,49 +228,26 @@ header a {
 }
 .card__book-title {
     color: #000;
-    font-family: 'Inter';
+    font-family: 'InterBold';
     font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
     line-height: 40px;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 .book-title {
+    font-family: 'InterBold';
     text-transform: capitalize;
     line-height: 40px;
 }
 .card__description{
     width: 355px;
     color: #000;
-    font-family: 'Inter';
+    font-family: 'InterReg';
     font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 40px;
     letter-spacing: 2px;
     text-transform: capitalize;
-    margin-bottom: 15px;
-}
-.button {
-    border-radius: 2px;
-    border: 1px solid #0C0C0E;
-    color: #0C0C0E;
-    background: none;
-    text-align: center;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 1px;
-}
-.button-buy {
-    padding: 9px 27px;
-    font-size: 10px;
-}
-.button-check-card {
-    font-size: 20px;
-    padding: 10px 40px;
+
 }
 .card__image{
     position: absolute;
@@ -238,6 +256,44 @@ header a {
     width: 200px;
     height: 300px;
 }
+.button {
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    color: #0C0C0E;
+    background: none;
+    text-align: center;
+    font-family: 'InterBold';
+    line-height: normal;
+    letter-spacing: 1px;
+}
+.button-buy {
+    transition: .4s all;
+    padding: 9px 27px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 15px;
+}
+.button-buy:hover, .button-check-card:hover,.button-sign-up:hover, .button-log-in:hover {
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+    background: #BB945F;
+}
+.button-own {
+    color: #BB945F;
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+    padding: 9px 25px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 15px;
+}
+.button-check-card {
+    transition: .4s all;
+    font-size: 20px;
+    padding: 10px 40px;
+}
+
 .spring, .summer, .autumn {
     display: none;
 }
@@ -250,6 +306,7 @@ header a {
 } 
 .card-2 {
     justify-self: end;
+    margin-right: 40px;
 }
 
 /* coffee-shop */
@@ -296,7 +353,13 @@ header a {
 /* contacts */
 .contacts-wrapper {
     display: grid;
+    text-transform: capitalize;
+    line-height: 40px;
+    letter-spacing: 2px;
     grid-template-columns: repeat(2, 1fr);
+}
+.contacts__list a {
+    color: #000;
 }
 .contacts__list-item {
     margin-bottom: 20px;
@@ -306,6 +369,7 @@ header a {
 .lib-cards-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
 }
 .find-your-card {
     justify-items: center;
@@ -330,10 +394,8 @@ header a {
     margin-bottom: 30px;
     text-align: center;
     color: #000;
-    font-family: 'Inter';
+    font-family: 'InterReg';
     font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
     line-height: normal;
     letter-spacing: 0.6px;
 }
@@ -342,16 +404,14 @@ header a {
 }
 .library-card__title {
     color: #000;
-    font-family: 'Forum';
     font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 50px;
     letter-spacing: 0.6px;
 }
 .input-wrapper {
     display: flex;
     flex-direction: column;
+
 }
 .input-wrapper #name {
     margin-bottom: 25px;
@@ -366,6 +426,7 @@ header a {
     background: #FFF;
     padding: 8px 20px;
     color: #8E8E8E;
+    font-family: 'Forum';
 }
 .get-card {
     text-align: end;
@@ -377,14 +438,13 @@ header a {
 
 }
 .get-card__title {
-    font-family: 'Forum';
     font-size: 30px;
-    font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.6px;
 }
 .button-sign-up, .button-log-in {
+    transition: .4s all;
     width: 75px;
     /* height: 30px; */
     padding: 10px 0px;
@@ -396,15 +456,23 @@ header a {
 
 /* footer */
 .footer {
-    width: 1440px;
+    width: 1400px;
     margin: 0 auto;
     background: #0C0C0E;
     color: white;
     padding: 20px;
     padding-bottom: 0;
 } 
+.address {
+    font-family: 'InterReg';
+    font-size: 15px;
+    line-height: 20px; 
+}
 .footer a {
     color: white;
+    font-family: 'InterReg';
+    font-size: 15px;
+    line-height: 20px; 
 }
 .footer-wrapper {
     display: grid;
@@ -415,7 +483,7 @@ header a {
     margin-bottom: 30px;
 }
 .icon-item {
-    margin-right: 20px;
+    margin-right: 15px;
 }
 .schedule {
     justify-self: end;
@@ -423,7 +491,6 @@ header a {
 }
 .footer__line {
     border: none;
-
     border-top: 1px solid white;
     height: 1px;
 }
@@ -432,13 +499,16 @@ header a {
     padding-bottom: 44px;
     display: flex;
     justify-content: space-between;
-}
-.footer__rs {
     color: #FFF;
     text-align: center;
-    font-family: Inter;
+    font-family: 'InterReg';
     font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
     letter-spacing: 2px;
+}
+.footer__rs a {
+    font-size: 20px;
+}
+
+.social-icons-box {
+    display: flex;
 }
