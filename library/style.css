@@ -127,6 +127,7 @@ header a {
 }
 .welcome-link {
     font-size: 30px;
+    color: #FFF;
     letter-spacing: 0.6px;
 }
 .nav__list {
@@ -363,6 +364,10 @@ header a {
 }
 .contacts__list-item {
     margin-bottom: 20px;
+}
+.contacts__map {
+    width: 696px;
+    height: 414px;
 }
 
 /* digital-library-cards */
