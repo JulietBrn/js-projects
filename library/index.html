@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Brooklyn Public Library</title>
     <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="57x57" href="icons/fav-icon/apple-icon-57x57.png">
@@ -26,12 +25,11 @@
 </head>
 <body>
     <header>
-        
         <div class="header-wrapper">
             <p class="welcome-link">Brooklyn Public Library</p>
-            <div class="nav-wrapper">
-                <nav class="nav">
-                    <ul class="nav__list">
+            <div class="nav-wrapper ">
+                <nav class="nav nav-hidden">
+                    <ul class="nav__list ">
                         <li class="nav__list-item"><a href="#section-about" class="nav__link">About</a></li>
                         <li class="nav__list-item"><a href="#section-favorites" class="nav__link">Favorites</a></li>
                         <li class="nav__list-item"><a href="#section-coffee-shop" class="nav__link">Coffee shop</a></li>
@@ -39,9 +37,13 @@
                         <li class="nav__list-item"><a href="#digital-library-cards" class="nav__link">Library Card</a></li>
                     </ul>
                 </nav>
-                <img src="icons/icon_profile.svg" alt="icon-profile">
+                <img src="icons/icon_profile.svg" alt="icon-profile" class="icon-profile">
+                <div class="burger">
+                    <hr class="burger-line toggle-1">
+                    <hr class="burger-line burger-line-middle">
+                    <hr class="burger-line toggle-2">
+                </div>
             </div>
-            
         </div>
         <section class="welcome">
             <h1 class="main-title">Welcome<br>to the Brooklyn<br>Library</h1>
@@ -54,13 +56,19 @@
             <h2 class="second-title">About</h2>
             <div><hr class="line"></div>
             <p class="text mb-20 text_center">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-            
-            <div class="img-box mb-35">
+            <div class="img-box mb-20">
+                <div class="arrow"><img src="icons/left-arrow.svg" alt="left-arrow"></div>
                 <img src="img/image-1.jpg" alt="image library" class="img-box__item">
-                <img src="img/image-2.jpg" alt="image library" class="img-box__item">
-                <img src="img/image-3.jpg" alt="image library" class="img-box__item">
+                <img src="img/image-2.jpg" alt="image library" class="img-box__item img-box__item-h">
+                <img src="img/image-3.jpg" alt="image library" class="img-box__item img-box__item-h">
+                <img src="img/image-4.jpg" alt="image library" class="img-box__item img-box__item-h">
+                <img src="img/image-5.jpg" alt="image library" class="img-box__item img-box__item-h">
+                <div class="arrow"><img src="icons/right-arrow.svg" alt="right-arrow"></div>
             </div>
             <div class="pagination-carousel mb-35">
+                <div class="pagination-wrapper">
+                    <div class="slide-pagination hidden"></div>
+                </div>
                 <div class="pagination-wrapper">
                     <div class="slide-pagination slide-pagination_active"></div>
                 </div>
@@ -70,15 +78,18 @@
                 <div class="pagination-wrapper">
                     <div class="slide-pagination"></div>
                 </div>
+                <div class="pagination-wrapper">
+                    <div class="slide-pagination hidden" ></div>
+                </div>
             </div>
         </section>
         <section id="section-favorites">
             <h2 class="second-title">Favorites</h2>
             <div><hr class="line"></div>
             <div class="season-selector">
-                <p class="text text_bold mb-20">Pick favorites of season</p>
+                <p class="text text_bold text_normal mb-40">Pick favorites of season</p>
                 
-                <form class="section-favorites__box box mb-20">
+                <form class="section-favorites__box box mb-40">
                     <input class="box__input" id="winter" type="radio" name="season" checked>
                     <label class="text box__label" for="winter">Winter</label>
                     <input class="box__input" id="spring" type="radio" name="season">
@@ -350,7 +361,7 @@
         <section id="section-our-contacts">
             <h2 class="second-title">Our Contacts</h2>
             <div><hr class="line"></div>
-            <div class="contacts-wrapper mb-40">
+            <div class="contacts-wrapper">
                 <div class="contacts__details">
                     <p class="text text_bold mb-40">For all Library inquiries:</p>
                     <ul class="contacts__list text mb-40">
