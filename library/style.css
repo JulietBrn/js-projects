@@ -79,6 +79,9 @@ main {
     font-weight: 700;
     color:#000;
 }
+.text_normal {
+    line-height: normal;
+}
 .text_center {
     text-align: center;
 
@@ -92,6 +95,9 @@ main {
 }
 .mb-20 {
     margin-bottom: 20px;
+}
+.mb-30 {
+    margin-bottom: 30px;
 }
 .mb-35 {
     margin-bottom: 35px;
@@ -201,6 +207,7 @@ header a {
 .section-favorites__box > * {
     padding: 5px;
     position: relative;
+    box-sizing: border-box;
 }
 .box__input:checked{
     color: black;
@@ -220,6 +227,7 @@ header a {
 .box__label {
     cursor: pointer;
     position: relative;
+    line-height: normal;
 }
 .box__label:not(:last-child) {
     margin-right: 80px;
@@ -325,7 +333,7 @@ header a {
 .winter {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px 60px;
+    gap: 38px 60px;
     justify-content: space-between;
 } 
 .card-2 {
@@ -381,6 +389,7 @@ header a {
     line-height: 40px;
     letter-spacing: 2px;
     grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 40px;
 }
 .contacts__list a {
     color: #000;
@@ -393,6 +402,7 @@ header a {
 }
 .contacts__map img {
     max-width: 100%;
+    margin: 0 15px;
 }
 
 /* digital-library-cards */
@@ -654,7 +664,8 @@ header a {
         display: grid;
         grid-template-columns: none;
         grid-template-rows: repeat(2, 1fr);
-        row-gap: 40px;
+        row-gap: 50px;
+        margin-bottom: 24px;
     }
 }
 @media (max-width: 918px) {
@@ -679,8 +690,34 @@ header a {
         text-transform: capitalize;
     }
 }
-
+.hidden {
+    display: none;
+}
 @media (max-width: 769px) {
+    .box__label:not(:last-child) {
+        margin-right: 88px;
+    }
+    .img-box {
+        display: grid;
+        grid-template-columns: 24px 450px 24px;
+        grid-template-rows: 1fr;
+        column-gap: 58px ;
+        align-items: center;
+        justify-items: center;
+    }
+    .img-box__item {
+        max-width: 450px;
+    }
+    .img-box__item-h {
+        display: none;
+    }
+    .pagination-wrapper .hidden {
+        display: block;
+    }
+    .arrow {
+        padding: 10px;
+        padding-top: 50px;
+    }
     .hidden {
         transition: .4s all;
         display: none;
@@ -696,5 +733,7 @@ header a {
         text-align: center;
         max-width: 600px;
     }
-    
+    .footer-wrapper {
+        row-gap: 15px;
+    }
 }
