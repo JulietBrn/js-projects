@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Brooklyn Public Library</title>
     <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="57x57" href="icons/fav-icon/apple-icon-57x57.png">
@@ -26,12 +25,11 @@
 </head>
 <body>
     <header>
-        
         <div class="header-wrapper">
             <p class="welcome-link">Brooklyn Public Library</p>
-            <div class="nav-wrapper">
-                <nav class="nav">
-                    <ul class="nav__list">
+            <div class="nav-wrapper ">
+                <nav class="nav nav-hidden">
+                    <ul class="nav__list ">
                         <li class="nav__list-item"><a href="#section-about" class="nav__link">About</a></li>
                         <li class="nav__list-item"><a href="#section-favorites" class="nav__link">Favorites</a></li>
                         <li class="nav__list-item"><a href="#section-coffee-shop" class="nav__link">Coffee shop</a></li>
@@ -39,9 +37,13 @@
                         <li class="nav__list-item"><a href="#digital-library-cards" class="nav__link">Library Card</a></li>
                     </ul>
                 </nav>
-                <img src="icons/icon_profile.svg" alt="icon-profile">
+                <img src="icons/icon_profile.svg" alt="icon-profile" class="icon-profile">
+                <div class="burger">
+                    <hr class="burger-line toggle-1">
+                    <hr class="burger-line burger-line-middle">
+                    <hr class="burger-line toggle-2">
+                </div>
             </div>
-            
         </div>
         <section class="welcome">
             <h1 class="main-title">Welcome<br>to the Brooklyn<br>Library</h1>
@@ -54,7 +56,6 @@
             <h2 class="second-title">About</h2>
             <div><hr class="line"></div>
             <p class="text mb-20 text_center">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-            
             <div class="img-box mb-35">
                 <img src="img/image-1.jpg" alt="image library" class="img-box__item">
                 <img src="img/image-2.jpg" alt="image library" class="img-box__item">
@@ -63,6 +64,12 @@
             <div class="pagination-carousel mb-35">
                 <div class="pagination-wrapper">
                     <div class="slide-pagination slide-pagination_active"></div>
+                </div>
+                <div class="pagination-wrapper">
+                    <div class="slide-pagination"></div>
+                </div>
+                <div class="pagination-wrapper">
+                    <div class="slide-pagination"></div>
                 </div>
                 <div class="pagination-wrapper">
                     <div class="slide-pagination"></div>
