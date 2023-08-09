@@ -608,7 +608,7 @@ header a {
         right: -20px;
         top: -20px;
         z-index: 2;
-        background-color: black;
+        background-color: #0C0C0E;
     }
 
     .burger-menu .nav__list {
