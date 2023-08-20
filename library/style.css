@@ -327,18 +327,26 @@ header a {
     padding: 10px 40px;
 }
 
-.spring, .summer, .autumn {
+.winter, .spring, .summer, .autumn {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+    visibility: visible;
+} 
+
+.hidden {
+    visibility: hidden;
     display: none;
 }
-.winter {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 38px 60px;
-    justify-content: space-between;
-} 
 .card-2 {
     justify-self: end;
     margin-right: 40px;
+}
+.active {
+    visibility: visible;
 }
 
 /* coffee-shop */
