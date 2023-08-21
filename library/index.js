@@ -1,4 +1,4 @@
-console.log('1.Вёрстка соответствует макету. Ширина экрана 768px +26\n2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n3.На ширине экрана 768рх реализовано адаптивное меню +12\nTotal 50');
+/* console.log('1.Вёрстка соответствует макету. Ширина экрана 768px +26\n2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n3.На ширине экрана 768рх реализовано адаптивное меню +12\nTotal 50'); */
 
 const burgerButton = document.querySelector('.burger')
 const nav = document.querySelector('.nav')
@@ -226,3 +226,33 @@ winterInput.addEventListener('click', () => changeSeasonCard(`${winter}`))
 springInput.addEventListener('click', () => changeSeasonCard(`${spring}`))
 summerInput.addEventListener('click', () => changeSeasonCard(`${summer}`))
 autumnInput.addEventListener('click', () => changeSeasonCard(`${autumn}`))
+
+
+/* drop-menu header */
+/* toggle open-close */
+const profileIcon = document.querySelector('#icon-profile')
+let dropMenu = document.querySelector('.drop-menu-profile')
+profileIcon.addEventListener('click', ()=> {
+  dropMenu.classList.toggle('hidden-menu')
+  dropMenu.classList.toggle('visible-menu')
+})
+
+/* logging-in */
+
+
+/* modal-windows */
+/* close-on click X */
+const btnsClose = document.querySelectorAll('.close-btn')
+const modalWindows = document.querySelectorAll('.modal-window-wrapper')
+function closeModalWindowByX() {
+  let activeWindow = document.querySelector('.active-window')
+
+  activeWindow.classList.add('hidden-window')
+  activeWindow.classList.remove('active-window')
+}
+btnsClose.forEach(val => {
+  val.addEventListener('click', (e)=> {
+    e.preventDefault()
+    closeModalWindowByX()
+  })
+})

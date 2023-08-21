@@ -37,7 +37,15 @@
                         <li class="nav__list-item"><a href="#digital-library-cards" class="nav__link">Library Card</a></li>
                     </ul>
                 </nav>
-                <img src="icons/icon_profile.svg" alt="icon-profile" class="icon-profile">
+                <img src="icons/icon_profile.svg" alt="icon-profile" class="icon-profile" id="icon-profile">
+                <div class="drop-menu-profile__no-auth drop-menu-profile hidden-menu">
+                    <p class="drop-menu-profile__title">Profile</p>
+                    <hr class="drop-menu-profile__line">
+                    <div class="drop-menu-profile__buttons-wrapper">
+                        <button id="log-in-button">Log In</button>
+                        <button id="register-button">Register</button>
+                    </div>
+                </div>
                 <div class="burger">
                     <hr class="burger-line toggle-1">
                     <hr class="burger-line burger-line-middle">
@@ -274,6 +282,47 @@
                     </div>
                 </div>
             </div>
+            <!-- after-registration -->
+            <!-- <div class="lib-cards-wrapper hidden">
+                <div class="find-your-card">
+                    <p class="find-your-card__title">Your Library card</p>
+                    <div class="library-card card-wrapper">
+                        <div class="card-wrapper__inside">
+                            <p class="library-card__title mb-20">Brooklyn Public Library</p>
+                            <form class="input-wrapper">
+                                <label for="name"></label>
+                                <input type="text" id="name" placeholder="Reader's name" class="library-card__title library-card__input-field">
+                                <label for="card-number"></label>
+                                <input type="number" id="card-number" placeholder="Card number" class="library-card__title library-card__input-field">
+                            </form>
+                        </div>
+                        <div class="modal-profile__info-box info-box">
+                            <div class="info-box__card">
+                                <p class="modal-profile__text">Visits</p>
+                                <img src="icons/profile-icon.svg" alt="profile-icon">
+                                <p class="modal-profile__count">23</p>
+                            </div>
+                            <div class="info-box__card">
+                                <p class="modal-profile__text">Bonuses</p>
+                                <img src="icons/star-icon.svg" alt="star-icon">
+                                <p class="modal-profile__count">1240</p>
+                            </div>
+                            <div class="info-box__card">
+                                <p class="modal-profile__text">Books</p>
+                                <img src="icons/book-icon.svg" alt="book-icon">
+                                <p class="modal-profile__count">2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="get-card visit-profile">
+                    <p class="get-card__title">Visit your profile</p>
+                    <p class="get-card__description text">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+                    <div class="get-card__button-box button-box">
+                        <button class="button button-sign-up button-profile">Profile</button>
+                    </div>
+                </div>
+            </div> -->
         </section>
     </main>
 
@@ -299,6 +348,116 @@
             <p class="footer__my-name"><a target="_blank" href="https://github.com/JulietBrn">Julia</a></p>
         </div>
     </footer>
+    <div class="modal-window-wrapper active-window">
+        <div class="modal modal-log-in">
+            <div class="modal__wrapper">
+                <button class="modal__close-btn close-btn"><img src="icons/close_btn_black.svg" alt="close-btn"></button>
+                <p class="modal__title modal-title">Login</p>
+                <form class="modal__form" action="">
+                    <label class="modal__form-text" for="e-mail">E-mail or readers card</label>
+                    <input type="mail" id="e-mail">
+                    <label class="modal__form-text" for="Password">Password</label>
+                    <input type="password" id="Password" >
+                    <button class="button button-log-in">Log in</button>
+                </form>
+                <div class="modal__qa-wrapper">
+                    <p class="modal__question">Don’t have an account?</p>
+                    <a class="modal__answer" href="">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal modal-register">
+        <div class="modal__wrapper">
+            <a class="modal__close-btn close-btn" href=""><img src="icons/close_btn_black.svg" alt="close-btn"></a>
+            <p class="modal__title modal-title">Register</p>
+            <form class="modal__form" action="">
+                <label class="modal__form-text" for="first-name">First name</label>
+                <input type="text" id="first-name">
+                <label class="modal__form-text" for="last-name">Last name</label>
+                <input type="text" id="last-name">
+                <label class="modal__form-text" for="e-mail-reg">E-mail</label>
+                <input type="mail" id="e-mail-reg">
+                <label class="modal__form-text" for="password-reg">Password</label>
+                <input type="password" id="password-reg" >
+                <button class="button button-sign-up">Sign Up</button>
+            </form>
+            <div class="modal__qa-wrapper">
+                <p class="modal__question">Already have an account?</p>
+                <a class="modal__answer" href="">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="big-modal modal-buy-a-card">
+        <div class="big-modal__title-wrapper">
+            <p class="big-modal__title modal-title_big">Buy a library card</p>
+            <a class="big-modal__close-btn close-btn" href=""><img src="icons/close_btn_white.svg" alt="close-btn"></a>
+        </div>
+        <div class="big-modal__wrapper">
+            <form class="modal__form" action="">
+                <label class="modal__form-text" for="bank-card-number">Bank card number</label>
+                <input type="number" id="bank-card-number">
+                <label class="modal__form-text" for="expiration-code">Expiration code</label>
+                <input type="number" class="big-modal__input_short" id="expiration-code"> 
+                <label class="modal__form-text" for="cvc">CVC</label>
+                <input type="number" class="big-modal__input_short" id="cvc">
+                <label class="modal__form-text cardholder-name" for="cardholder-name">Cardholder name</label>
+                <input type="text" id="cardholder-name" >
+                <label class="modal__form-text" for="postal-code">Postal code</label>
+                <input type="number" id="postal-code">
+                <label class="modal__form-text" for="city">City / Town</label>
+                <input type="text" id="city">
+                <div class="big-modal__button-wrapper">
+                    <button class="button button-buy">Buy</button>
+                    <p class="big-modal__price">$ 25.00</p>
+                </div>
+            </form>
+            <p class="big-modal__text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+            </p>
+        </div>
+    </div>
+    <div class="modal-profile">
+        <div class="modal-profile__avatar-wrapper">
+            <div class="modal-profile__avatar">JD</div>
+            <div class="modal-profile__avatar-name">John Doe</div>
+        </div>
+        <div class="modal-profile__card">
+            <a class="modal__close-btn close-btn" href=""><img src="icons/close_btn_black.svg" alt="close-btn"></a>
+            <p class="modal-profile__title modal-title_big modal-title_black">My profile</p>
+            <div class="modal-profile__info-box info-box">
+                <div class="info-box__card">
+                    <p class="modal-profile__text">Visits</p>
+                    <img src="icons/profile-icon.svg" alt="profile-icon">
+                    <p class="modal-profile__count">23</p>
+                </div>
+                <div class="info-box__card">
+                    <p class="modal-profile__text">Bonuses</p>
+                    <img src="icons/star-icon.svg" alt="star-icon">
+                    <p class="modal-profile__count">1240</p>
+                </div>
+                <div class="info-box__card">
+                    <p class="modal-profile__text">Books</p>
+                    <img src="icons/book-icon.svg" alt="book-icon">
+                    <p class="modal-profile__count">2</p>
+                </div>
+            </div>
+            <div class="modal-profile__rented-books rented-books">
+                <p class="rented-books__title">Rented books</p>
+                <ul class="modal-profile__book-list">
+                    <li class="modal-profile__text">The Last Queen, Clive Irving</li>
+                    <li class="modal-profile__text">Dominicana, Angie Cruz</li>
+                </ul>
+
+            </div>
+            <div class="modal-profile__card-number">
+                <p class="modal-profile__text modal-profile__text_no-capit">Card number</p>
+                <p class="modal-profile__text modal-profile__text_brown">F00234030</p>
+                <img src="icons/copy-icon.svg" alt="copy" class="copy-icon">
+            </div>
+
+        </div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
