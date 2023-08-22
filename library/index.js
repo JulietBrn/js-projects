@@ -19,12 +19,127 @@ welcomeSection.addEventListener('click', ()=> {
   toggleNav()
   }
 })
-
-
-
 for (let value of links) { //для каждого элемента из псевдомассива
   value.addEventListener('click', toggleNav)
 }
+
+/* carousel */
+/* 
+
+leftArrow.addEventListener('click', (e)=> {
+  console.log(e);
+  carousel.style.transform = 'translateX(450px)'
+})
+rightArrow.addEventListener('click', ()=> {
+  carousel.style.transform = 'translateX(-450px)'
+})
+ */
+/* ARROWS */
+const rightArrow = document.querySelector('#right-arrow');
+const leftArrow = document.querySelector('#left-arrow');
+const carousel = document.querySelector('.carousel');
+const carouselItems = document.querySelectorAll('.carousel-item');
+let currentIndex = 0; // Текущий индекс элемента
+
+leftArrow.addEventListener('click', () => {
+  deleteActivePagination()
+  
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarouselPosition();
+    makeRightButtonAble()
+  }
+  if(currentIndex == 0) {
+    makeLeftButtonDesabled()
+  }
+  setActivePag()
+});
+
+rightArrow.addEventListener('click', (e) => {
+  deleteActivePagination()
+
+  if (currentIndex < carouselItems.length - 1) {
+    currentIndex++;
+    updateCarouselPosition();
+    makeLeftButtonAble()
+  }
+  if (currentIndex === carouselItems.length - 1) {
+    makeRightButtonDesabled()
+  }
+  setActivePag()
+});
+function setActivePag() {
+  slidePag[currentIndex].classList.add('slide-pagination_active')
+}
+
+function makeLeftButtonDesabled() {
+  leftArrow.setAttribute('disabled', 'disabled')
+  leftArrow.classList.add('arrow-disabled')
+  document.querySelector('.left-pagination').setAttribute('disabled', 'disabled')
+}
+function makeRightButtonDesabled() {
+  rightArrow.setAttribute('disabled', 'disabled')
+  rightArrow.classList.add('arrow-disabled')
+  document.querySelector('.right-pagination').setAttribute('disabled', 'disabled')
+}
+function makeLeftButtonAble() {
+  leftArrow.classList.remove('arrow-disabled')
+  leftArrow.removeAttribute('disabled', 'disabled')
+  document.querySelector('.left-pagination').removeAttribute('disabled', 'disabled')
+}
+function makeRightButtonAble() {
+  rightArrow.classList.remove('arrow-disabled')
+  rightArrow.removeAttribute('disabled', 'disabled')
+  document.querySelector('.right-pagination').removeAttribute('disabled', 'disabled')
+}
+
+function updateCarouselPosition() {
+  const itemWidth = carouselItems[0].offsetWidth
+  const newPosition = -currentIndex * (itemWidth); // Новая позиция сдвига
+  carousel.style.transform = `translateX(${newPosition}px)`;
+}
+
+
+
+/* PAGINATION */
+const paginationItems = document.querySelectorAll('.pagination-wrapper')
+const slidePag = document.querySelectorAll('.slide-pagination')
+console.log(paginationItems);
+
+function deleteActivePagination() {
+  slidePag.forEach(el => el.classList.remove('slide-pagination_active'))
+}
+
+let paginationIndex = 0
+
+console.log(paginationItems);
+paginationItems.forEach((pagItem, index) => {
+  let childPagItem = pagItem.children[0]
+  pagItem.addEventListener('click', (el) => {
+    currentIndex = index
+    deleteActivePagination()
+    childPagItem.classList.add('slide-pagination_active')
+    updateCarouselPosition()
+    if(currentIndex == 0) {
+      makeLeftButtonDesabled()
+    }
+    if(currentIndex == 4) {
+      makeRightButtonDesabled()
+    }
+    if(currentIndex > 0) {
+      makeLeftButtonAble()
+    }
+    if(currentIndex < carouselItems.length - 1) {
+      makeRightButtonAble()
+    }
+  })
+})
+
+/* function updateCarouselPositionByPag() {
+  const newPosition = -paginationIndex * (455); // Новая позиция сдвига
+  carousel.style.transform = `translateX(${newPosition}px)`;
+}
+ */
 
 /* Switch season */
 let cardsBox = document.querySelector('.cards-box')
@@ -79,7 +194,7 @@ const winter = `
 </div>
 `
 const spring = `
-<div class="spring card-content">
+<div class="spring card-content ">
 <!-- 5 -->
   <div class="card">
     <p class="card__title ">Staff Picks</p>
@@ -123,7 +238,7 @@ const spring = `
   </div>
 </div>`
 const summer = `
-<div class="summer card-content">
+<div class="summer card-content ">
   <!-- 9 -->
   <div class="card">
       <p class="card__title ">Staff Picks</p>
@@ -167,7 +282,7 @@ const summer = `
   </div>
 </div>`
 const autumn = `
-<div class="autumn card-content">
+<div class="autumn card-content ">
   <!-- 13 -->
   <div class="card">
     <p class="card__title ">Staff Picks</p>
@@ -215,10 +330,12 @@ const autumn = `
 // Переключение карточек
 function changeSeasonCard(season) {
   seasonContant = season
+  
   // changeActiveClass()
   cardsBox.removeChild(document.querySelector('.card-content'))
-
   cardsBox.insertAdjacentHTML('afterbegin', seasonContant)
+  /* seasonContant.classList.add('active-card-content') */
+  // seasonContant.classList.remove('hidden')
 }
 
 // inputsBox.forEach(val => val.addEventListener('click', changeSeasonCard))
@@ -229,7 +346,7 @@ autumnInput.addEventListener('click', () => changeSeasonCard(`${autumn}`))
 
 
 /* drop-menu header */
-/* toggle open-close */
+///* toggle open-close */
 const profileIcon = document.querySelector('#icon-profile')
 let dropMenu = document.querySelector('.drop-menu-profile')
 profileIcon.addEventListener('click', ()=> {
@@ -238,13 +355,35 @@ profileIcon.addEventListener('click', ()=> {
 })
 
 /* logging-in */
+const logInBtn = document.querySelectorAll('.log-in-button')
+const registerBtn = document.querySelectorAll('.register-button')
+
+const logInModal = document.querySelector('#modal-log-in')
+const registerModal = document.querySelector('#modal-register')
+
+logInBtn.forEach(btn =>{
+  btn.addEventListener('click', ()=> {
+  logInModal.classList.add('active-window')
+  logInModal.classList.remove('hidden-window')
+  registerModal.classList.remove('active-window')
+  registerModal.classList.add('hidden-window')
+  })
+})
+registerBtn.forEach(btn =>{
+  btn.addEventListener('click', ()=> {
+    registerModal.classList.add('active-window')
+    registerModal.classList.remove('hidden-window')
+    logInModal.classList.remove('active-window')
+    logInModal.classList.add('hidden-window')
+  })
+})
 
 
 /* modal-windows */
 /* close-on click X */
 const btnsClose = document.querySelectorAll('.close-btn')
 const modalWindows = document.querySelectorAll('.modal-window-wrapper')
-function closeModalWindowByX() {
+function closeModalWindow() {
   let activeWindow = document.querySelector('.active-window')
 
   activeWindow.classList.add('hidden-window')
@@ -253,6 +392,36 @@ function closeModalWindowByX() {
 btnsClose.forEach(val => {
   val.addEventListener('click', (e)=> {
     e.preventDefault()
-    closeModalWindowByX()
+    closeModalWindow()
   })
 })
+
+/* close with background */
+modalWindows.forEach(window => {
+  window.addEventListener('click', event => {
+    if(event.target.className == 'modal-window-wrapper active-window'){
+      closeModalWindow()
+    }
+  })
+})
+
+
+/* open my profile window */
+const myProfileBtn = document.querySelector('.my-profile-button')
+const modalMyProfile = document.querySelector('#modal-my-profile')
+myProfileBtn.addEventListener('click', ()=> {
+  modalMyProfile.classList.add('active-window')
+  modalMyProfile.classList.remove('hidden-window')
+})
+
+
+/* open buy library card before auth */
+const modalBuy = document.querySelector('#modal-buy')
+let buyBtn = document.querySelectorAll('.button-buy')
+buyBtn.forEach(btn => {
+  btn.addEventListener('click', ()=> {
+    modalBuy.classList.add('active-window')
+    modalBuy.classList.remove('hidden-window')
+  })
+})
+/* При нажатии на любую кнопку Buy, после покупки абонемента, меняет вид кнопки на неактивную Own, добавляя единицу к счетчику книг в профиле. +2 */
