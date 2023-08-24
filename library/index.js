@@ -1,5 +1,6 @@
 /* console.log('1.Вёрстка соответствует макету. Ширина экрана 768px +26\n2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n3.На ширине экрана 768рх реализовано адаптивное меню +12\nTotal 50'); */
 
+/* Burger */
 const burgerButton = document.querySelector('.burger')
 const nav = document.querySelector('.nav')
 const burgerMenu = document.querySelector('.burger-menu')
@@ -10,7 +11,6 @@ function toggleNav(){
   nav.classList.toggle('burger-menu')
   nav.classList.toggle('nav-hidden')
   burgerButton.classList.toggle('burger-rotate')
-  console.log(nav.classList.contains('burger-menu'));
 }
 burgerButton.addEventListener('click', toggleNav)
 
@@ -23,24 +23,44 @@ for (let value of links) { //для каждого элемента из псе�
   value.addEventListener('click', toggleNav)
 }
 
-/* carousel */
-/* 
 
-leftArrow.addEventListener('click', (e)=> {
-  console.log(e);
-  carousel.style.transform = 'translateX(450px)'
+/* drop-menu */
+
+const profileIcon = document.querySelector('.icon-profile__wrapper')
+
+///* toggle open-close */
+profileIcon.addEventListener('click', ()=> {
+  let dropMenu = document.querySelector('.drop-menu-profile')
+  dropMenu.classList.toggle('hidden-menu')
+  dropMenu.classList.toggle('visible-menu')
 })
-rightArrow.addEventListener('click', ()=> {
-  carousel.style.transform = 'translateX(-450px)'
+
+const body = document.querySelector('body')
+body.addEventListener('click', (e)=> {
+  let dropMenu = document.querySelector('.visible-menu')
+  /* Close drop-menu */
+  if((e.target.className == 'welcome'|| e.target.classList[0] == 'burger') && dropMenu) {
+    dropMenu.classList.add('hidden-menu')
+    dropMenu.classList.remove('visible-menu')
+  }
+   /* close burger */
+  if (nav.classList.contains('burger-menu') && (e.target.className == 'welcome' || e.target.parentNode.className == 'icon-profile__wrapper' )) {
+    nav.classList.remove('burger-menu')
+    nav.classList.add('nav-hidden')
+    burgerButton.classList.remove('burger-rotate')
+  }
 })
- */
-/* ARROWS */
+
+
+/* carousel */
+/* by ARROWS */
 const rightArrow = document.querySelector('#right-arrow');
 const leftArrow = document.querySelector('#left-arrow');
 const carousel = document.querySelector('.carousel');
 const carouselItems = document.querySelectorAll('.carousel-item');
-let currentIndex = 0; // Текущий индекс элемента
+let currentIndex = 0; 
 
+/* left arrow */
 leftArrow.addEventListener('click', () => {
   deleteActivePagination()
   
@@ -55,9 +75,9 @@ leftArrow.addEventListener('click', () => {
   setActivePag()
 });
 
+/* right arrow */
 rightArrow.addEventListener('click', (e) => {
   deleteActivePagination()
-
   if (currentIndex < carouselItems.length - 1) {
     currentIndex++;
     updateCarouselPosition();
@@ -95,16 +115,13 @@ function makeRightButtonAble() {
 
 function updateCarouselPosition() {
   const itemWidth = carouselItems[0].offsetWidth
-  const newPosition = -currentIndex * (itemWidth); // Новая позиция сдвига
+  const newPosition = -currentIndex * (itemWidth); 
   carousel.style.transform = `translateX(${newPosition}px)`;
 }
 
-
-
-/* PAGINATION */
+/* by PAGINATION */
 const paginationItems = document.querySelectorAll('.pagination-wrapper')
 const slidePag = document.querySelectorAll('.slide-pagination')
-console.log(paginationItems);
 
 function deleteActivePagination() {
   slidePag.forEach(el => el.classList.remove('slide-pagination_active'))
@@ -112,7 +129,6 @@ function deleteActivePagination() {
 
 let paginationIndex = 0
 
-console.log(paginationItems);
 paginationItems.forEach((pagItem, index) => {
   let childPagItem = pagItem.children[0]
   pagItem.addEventListener('click', (el) => {
@@ -135,12 +151,6 @@ paginationItems.forEach((pagItem, index) => {
   })
 })
 
-/* function updateCarouselPositionByPag() {
-  const newPosition = -paginationIndex * (455); // Новая позиция сдвига
-  carousel.style.transform = `translateX(${newPosition}px)`;
-}
- */
-
 /* Switch season */
 let cardsBox = document.querySelector('.cards-box')
 let winterInput = document.querySelector('#winter')
@@ -148,7 +158,7 @@ let springInput = document.querySelector('#spring')
 let summerInput = document.querySelector('#summer')
 let autumnInput = document.querySelector('#autumn')
 let seasonContant
-
+const buttonOwn = `<button disabled class="button button-own">Own</button>`
 const winter = `
 <div class="winter card-content">
 <!-- 1 -->
@@ -188,7 +198,7 @@ const winter = `
     <p class="card__book-title ">The Last Queen</p>
     <p class="card__author text_bold mb-20"><span class="book-title">By Clive Irving</span></p>
     <p class="card__description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-    <button disabled class="button button-own">Own</button>
+    <button class="button button-buy">Buy</button>
     <div class="card__image"><img  src="img/book-4.jpg" alt="book-image"></div>
   </div>
 </div>
@@ -233,7 +243,7 @@ const spring = `
     <p class="card__book-title ">Dominicana</p>
     <p class="card__author text_bold mb-20"><span class="book-title">By Angie Cruz</span></p>
     <p class="card__description">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
-    <button disabled class="button button-own">Own</button>
+    <button class="button button-buy">Buy</button>
     <div class="card__image"><img  src="img/book-8.jpg" alt="book-image"></div>
   </div>
 </div>`
@@ -277,7 +287,7 @@ const summer = `
       <p class="card__book-title ">Shark Dialogues: A Novel</p>
       <p class="card__author text_bold mb-20"><span class="book-title">By Kiana Davenport</span></p>
       <p class="card__description">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.</p>
-      <button disabled class="button button-own">Own</button>
+      <button class="button button-buy">Buy</button>
       <div class="card__image"><img  src="img/book-12.jpg" alt="book-image"></div>
   </div>
 </div>`
@@ -321,71 +331,90 @@ const autumn = `
     <p class="card__book-title ">Slug: And Other Stories</p>
     <p class="card__author text_bold mb-20"><span class="book-title">By Megan Milks</span></p>
     <p class="card__description">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.</p>
-    <button disabled class="button button-own">Own</button>
+    <button class="button button-buy">Buy</button>
     <div class="card__image"><img  src="img/book-16.jpg" alt="book-image"></div>
   </div>
 </div>`
 
 
-// Переключение карточек
+// Switch cards
 function changeSeasonCard(season) {
   seasonContant = season
-  
-  // changeActiveClass()
   cardsBox.removeChild(document.querySelector('.card-content'))
   cardsBox.insertAdjacentHTML('afterbegin', seasonContant)
   /* seasonContant.classList.add('active-card-content') */
   // seasonContant.classList.remove('hidden')
 }
 
-// inputsBox.forEach(val => val.addEventListener('click', changeSeasonCard))
 winterInput.addEventListener('click', () => changeSeasonCard(`${winter}`))
 springInput.addEventListener('click', () => changeSeasonCard(`${spring}`))
 summerInput.addEventListener('click', () => changeSeasonCard(`${summer}`))
 autumnInput.addEventListener('click', () => changeSeasonCard(`${autumn}`))
 
 
-/* drop-menu header */
-///* toggle open-close */
-const profileIcon = document.querySelector('#icon-profile')
-let dropMenu = document.querySelector('.drop-menu-profile')
-profileIcon.addEventListener('click', ()=> {
-  dropMenu.classList.toggle('hidden-menu')
-  dropMenu.classList.toggle('visible-menu')
-})
 
-/* logging-in */
-const logInBtn = document.querySelectorAll('.log-in-button')
-const registerBtn = document.querySelectorAll('.register-button')
+/* Accounts */
+let accounts = []
+/* load local storage */
+window.addEventListener('load', () => {
+  const storedAccounts = JSON.parse(localStorage.getItem('accounts'));
+  if (storedAccounts && Array.isArray(storedAccounts)) {
+    accounts = storedAccounts;
+  }
+});
+let currentUser
 
-const logInModal = document.querySelector('#modal-log-in')
-const registerModal = document.querySelector('#modal-register')
+/* ???????????????? */
+/* if(currentUser) {
+  changeDropMenuToAuth()
+  updateProfileAvatar(currentUser.fullName, currentUser.avatar)
+}
+ */
 
-logInBtn.forEach(btn =>{
-  btn.addEventListener('click', ()=> {
-  logInModal.classList.add('active-window')
-  logInModal.classList.remove('hidden-window')
-  registerModal.classList.remove('active-window')
-  registerModal.classList.add('hidden-window')
-  })
-})
-registerBtn.forEach(btn =>{
-  btn.addEventListener('click', ()=> {
-    registerModal.classList.add('active-window')
-    registerModal.classList.remove('hidden-window')
-    logInModal.classList.remove('active-window')
-    logInModal.classList.add('hidden-window')
-  })
-})
+/* create class */
+class Account{
+  constructor(firstName, lastName, email, password){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+    this.avatar;
+    this.cardNumber = '';
+    this.visits = 0;
+    this.books = 0;
+    this.fullName;
+  }
+  createAvatar(firstName,lastName){
+    this.avatar = `${(firstName.slice(0,1)+lastName.slice(0,1)).toUpperCase()}`
+  }
+  /* generate rundom Card Number */
+  generateCardNumber() {
+    const symbols = '0123456789ABCDEF'
+    for(let i = 0; i < 9; i++){
+      let rundomIndex = Math.floor(Math.random()*symbols.length)
+      this.cardNumber += symbols[rundomIndex]
+    }
+  }
+  createFullName(firstName,lastName){
+    this.fullName = `${firstName} ${lastName}`
+  }
+  addVisitsQty() {
+    this.visits ++
+  }
+  addBooksQty() {
+    this.books ++
+  }
+
+}
 
 
-/* modal-windows */
+/* MODAL WINDOWS */
 /* close-on click X */
 const btnsClose = document.querySelectorAll('.close-btn')
 const modalWindows = document.querySelectorAll('.modal-window-wrapper')
+
 function closeModalWindow() {
   let activeWindow = document.querySelector('.active-window')
-
   activeWindow.classList.add('hidden-window')
   activeWindow.classList.remove('active-window')
 }
@@ -405,17 +434,183 @@ modalWindows.forEach(window => {
   })
 })
 
+function closeDropMenu() {
+  let dropMenu = document.querySelector('.visible-menu')
+  dropMenu.classList.add('hidden-menu')
+  dropMenu.classList.remove('visible-menu')
+}
 
-/* open my profile window */
-const myProfileBtn = document.querySelector('.my-profile-button')
-const modalMyProfile = document.querySelector('#modal-my-profile')
-myProfileBtn.addEventListener('click', ()=> {
-  modalMyProfile.classList.add('active-window')
-  modalMyProfile.classList.remove('hidden-window')
+
+/* open modal LOGIN */
+const logInBtn = document.querySelectorAll('.log-in-button')
+const signUp = document.querySelector('.button-sign-up')
+const registerBtn = document.querySelectorAll('.register-button')
+let logOutBtn 
+
+const logInModal = document.querySelector('#modal-log-in')
+const registerModal = document.querySelector('#modal-register')
+
+logInBtn.forEach(btn =>{
+  btn.addEventListener('click', ()=> {
+  logInModal.classList.add('active-window')
+  logInModal.classList.remove('hidden-window')
+  registerModal.classList.remove('active-window')
+  registerModal.classList.add('hidden-window')
+  closeDropMenu()
+  })
 })
 
+/* open modal REGISTER  */
+registerBtn.forEach(btn =>{
+  btn.addEventListener('click', ()=> {
+    registerModal.classList.add('active-window')
+    registerModal.classList.remove('hidden-window')
+    logInModal.classList.remove('active-window')
+    logInModal.classList.add('hidden-window')
+    closeDropMenu()
+  })
+})
+signUp.addEventListener('click', ()=> {
+  registerModal.classList.add('active-window')
+  registerModal.classList.remove('hidden-window')
+  closeDropMenu()
+})
 
-/* open buy library card before auth */
+/* Модальное окно `LOGIN` */
+const loginModalBtn = document.querySelector('#login-modal-btn')
+loginModalBtn.addEventListener('click', (e)=> {
+  e.preventDefault()
+  let emailOrReadersCardValue = document.querySelector('#e-mail').value
+  let passwordValue = document.querySelector('#password').value
+  console.log(emailOrReadersCardValue);
+  console.log(passwordValue);
+  const storedAccounts = JSON.parse(localStorage.getItem('accounts'))
+  storedAccounts.forEach((acc, i) => {
+    if(acc.password == passwordValue && passwordValue.length >=8 && (acc.email == emailOrReadersCardValue || acc.cardNumber == emailOrReadersCardValue)) {
+      document.querySelectorAll('.modal-log-in input').forEach(val => val.value = '')
+      closeModalWindow()
+      console.log('success');
+      updateProfileAvatar(acc.fullName, acc.avatar)
+      
+      /* change drop menu + change profile = cardNumber */
+      /* acc.addVisitsQty() */
+      currentUser = acc
+      // localStorage.setItem('accounts', JSON.stringify(accounts))
+      changeDropMenuToAuth()
+      logOutBtn = document.querySelector('.log-out-button')
+      logOutBtn.addEventListener('click', toLogOut)
+      console.log(logOutBtn);
+    }
+    // else { return alert('Password and Email or Card Number are incorrect')}
+  })
+})
+
+function changeDropMenuToAuth() {
+  let title = document.querySelector('.drop-menu-profile__title')
+  title.textContent = currentUser.cardNumber
+  title.classList.add('drop-menu-profile__title_small')      
+  let btnsWrapper = document.querySelector('.drop-menu-profile__buttons-wrapper')
+  btnsWrapper.innerHTML = `<button class="my-profile-button">My profile</button>
+  <button class="log-out-button">Log Out</button>`
+}
+
+/* tologOut */
+
+
+function toLogOut() {
+  /* возврат аватарки */
+  /* смена дроп меню */
+  let title = document.querySelector('.drop-menu-profile__title')
+  title.textContent = 'Profile'
+  title.classList.remove('drop-menu-profile__title_small')
+  let btnsWrapper = document.querySelector('.drop-menu-profile__buttons-wrapper')
+  btnsWrapper.innerHTML = `<button class="log-in-button">Log In</button>
+  <button class="register-button">Register</button>`
+  /* очистка карент юзера */
+  returnOldProfileAvatar()
+}
+function returnOldProfileAvatar(){
+  let profWrapper = document.querySelector('.icon-profile__wrapper')
+  profWrapper.innerHTML = '<img src="icons/icon_profile.svg" alt="icon-profile" class="icon-profile" id="icon-profile">'
+}
+
+
+
+
+/* Press key Register + check input values*/
+const signUpModalBtn = document.querySelector('#sign-up-modal-btn')
+/* get values from form */
+signUpModalBtn.addEventListener('click', (e)=>{
+  e.preventDefault()
+  let firstName = document.querySelector('#first-name').value
+  let lastName = document.querySelector('#last-name').value
+  let emailReg = document.querySelector('#e-mail-reg').value
+  let passwordReg = document.querySelector('#password-reg').value
+  /* validation inputs */
+  if(!firstName || !lastName || !emailReg || !passwordReg) {
+    alert('Please fill in all fields')
+  }
+  if(passwordReg.length<8) {
+    alert('Password must be at least 8 characters')
+  }
+  let emailIsValid = validationEmail(emailReg)
+  if(!emailIsValid) {
+    alert('Please check the e-mail. It should contains @ and . ')
+  }
+  /* validation is successfuly */
+  if(passwordReg.length>=8 && !!firstName && !!lastName && emailIsValid) {
+    let account = new Account(firstName, lastName, emailReg, passwordReg)
+    account.createAvatar(firstName, lastName)
+    account.createFullName(firstName, lastName)
+    account.generateCardNumber()
+    account.addVisitsQty()
+    accounts.push(account)
+    localStorage.setItem('accounts', JSON.stringify(accounts))
+    updateProfileAvatar(account.fullName, account.avatar)
+    clearValue()
+    closeModalWindow()
+    currentUser = account
+    changeDropMenuToAuth()
+    logOutBtn = document.querySelector('.log-out-button')
+    logOutBtn.addEventListener('click', toLogOut)
+    console.log(logOutBtn);
+  }
+})
+/* Validation email*/
+function validationEmail(email){
+  return email.length >=3 && email.includes('@')  && email.includes('.')? true : false
+}
+/* Clear inputs value */
+function clearValue(){
+  document.querySelector('#first-name').value = document.querySelector('#last-name').value = document.querySelector('#e-mail-reg').value = document.querySelector('#password-reg').value =''
+}
+
+
+
+/* localStorage.clear() */
+/* Отображение страницы приходит в состояние после авторизации (этап 4). +2
+ */
+
+function updateProfileAvatar(fullName, avatar){
+  let oldAvatar = document.querySelector('.icon-profile')
+  let newAvatar = document.createElement('p');
+  newAvatar.className = 'icon-profile__after-auth icon-profile';
+  newAvatar.title = fullName;
+  newAvatar.textContent = avatar;
+  document.querySelector('.icon-profile__wrapper').replaceChild(newAvatar, oldAvatar)
+}
+
+
+/* open my profile window */
+// const myProfileBtn = document.querySelector('.my-profile-button')
+// const modalMyProfile = document.querySelector('#modal-my-profile')
+// myProfileBtn.addEventListener('click', ()=> {
+//   modalMyProfile.classList.add('active-window')
+//   modalMyProfile.classList.remove('hidden-window')
+// })
+
+
+/* open buy-library-card before auth */
 const modalBuy = document.querySelector('#modal-buy')
 let buyBtn = document.querySelectorAll('.button-buy')
 buyBtn.forEach(btn => {
@@ -425,3 +620,65 @@ buyBtn.forEach(btn => {
   })
 })
 /* При нажатии на любую кнопку Buy, после покупки абонемента, меняет вид кнопки на неактивную Own, добавляя единицу к счетчику книг в профиле. +2 */
+
+
+const dropMenuBeforeAuth = `
+<div class="drop-menu-profile__no-auth drop-menu-profile hidden-menu">
+  <p class="drop-menu-profile__title">Profile</p>
+  <hr class="drop-menu-profile__line">
+  <div class="drop-menu-profile__buttons-wrapper">
+    <button class="log-in-button">Log In</button>
+    <button class="register-button">Register</button>
+  </div>
+</div>`
+
+const dropMenuAfterAuth = `
+<div class="drop-menu-profile__auth drop-menu-profile hidden-menu">
+  <p class="drop-menu-profile__title">Profile</p>
+  <hr class="drop-menu-profile__line">
+  <div class="drop-menu-profile__buttons-wrapper">
+    <button class="my-profile-button">My profile</button>
+    <button class="log-out-button">Log Out</button>
+  </div>
+</div>`
+
+
+/* buy a library card */
+/* Для того, чтобы кнопка Buy была активна, все поля должны быть не пустыми. +2
+Bank card number должен содержать 16 цифр. С пробелами каждые 4 символа или нет - значения не имеет. +2
+Expiration code содержит 2 поля с ограничением в 2 цифры. +2
+CVC должен содержать 3 цифры. +2
+После удачного нажатия на кнопку Buy, окно закрывается, и больше мы к нему не возвращаемся. */
+const buyCardinputs = document.querySelectorAll('.big-modal__wrapper input')
+console.log(buyCardinputs);
+/* function checkBuyActive(){
+  buyCardinputs.forEach(val => {
+    if(val.value >0) {
+      // активируй кнопку
+    } else {alert('')}
+  })
+} */
+
+
+/*  Блок `Digital Library Cards`. */
+const checkCardBtn = document.querySelector('.button-check-card')
+
+checkCardBtn.addEventListener('click', ()=> {
+  let nameValue = document.querySelector('#name').value
+  let cardNumberValue = document.querySelector('#card-number').value
+  const storedAccounts = JSON.parse(localStorage.getItem('accounts'))
+  storedAccounts.forEach((acc, i) => {
+    if(acc.cardNumber == cardNumberValue && acc.fullName == nameValue) {
+      document.querySelector('.button-check-card__wrapper').classList.add('hidden')
+      document.querySelector('.modal-profile__info-box').classList.remove('hidden')
+      document.querySelector('.find-your-card__title').textContent = 'Your Library card'
+      setTimeout(function(){
+        document.querySelector('.button-check-card__wrapper').classList.remove('hidden')
+        document.querySelector('.modal-profile__info-box').classList.add('hidden')
+        document.querySelector('.find-your-card__title').textContent = 'Find your Library card'
+        document.querySelector('#name').value = document.querySelector('#card-number').value = ''
+      }, 10000)
+    }
+  })
+
+})

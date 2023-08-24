@@ -37,21 +37,16 @@
                         <li class="nav__list-item"><a href="#digital-library-cards" class="nav__link">Library Card</a></li>
                     </ul>
                 </nav>
-                <img src="icons/icon_profile.svg" alt="icon-profile" class="icon-profile" id="icon-profile" title="">
+                <div class="icon-profile__wrapper">
+                    <img src="icons/icon_profile.svg" alt="icon-profile" class="icon-profile" id="icon-profile">
+                </div>
+
                 <div class="drop-menu-profile__no-auth drop-menu-profile hidden-menu">
                     <p class="drop-menu-profile__title">Profile</p>
                     <hr class="drop-menu-profile__line">
                     <div class="drop-menu-profile__buttons-wrapper">
                         <button class="log-in-button">Log In</button>
                         <button class="register-button">Register</button>
-                    </div>
-                </div>
-                <div class="drop-menu-profile__auth drop-menu-profile hidden-menu">
-                    <p class="drop-menu-profile__title">Profile</p>
-                    <hr class="drop-menu-profile__line">
-                    <div class="drop-menu-profile__buttons-wrapper">
-                        <button class="my-profile-button">My profile</button>
-                        <button class="log-out-button">Log Out</button>
                     </div>
                 </div>
                 <div class="burger">
@@ -160,7 +155,7 @@
                         <p class="card__book-title ">The Last Queen</p>
                         <p class="card__author text_bold mb-20"><span class="book-title">By Clive Irving</span></p>
                         <p class="card__description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-                        <button disabled class="button button-own">Own</button>
+                        <button class="button button-buy">Buy</button>
                         <div class="card__image"><img  src="img/book-4.jpg" alt="book-image"></div>
                     </div>
                 </div>
@@ -277,12 +272,28 @@
                                 <label for="name"></label>
                                 <input type="text" id="name" placeholder="Reader's name" class="library-card__title library-card__input-field">
                                 <label for="card-number"></label>
-                                <input type="number" id="card-number" placeholder="Card number" class="library-card__title library-card__input-field">
+                                <input type="text" id="card-number" placeholder="Card number" class="library-card__title library-card__input-field">
                             </form>
                         </div>
-                        <div class="button-wrapper"><button class="button button-check-card ">Check the card</button>
+                        <div class="button-wrapper button-check-card__wrapper"><button class="button button-check-card ">Check the card</button>
                         </div>
-
+                        <div class="modal-profile__info-box info-box hidden">
+                            <div class="info-box__card">
+                                <p class="modal-profile__text">Visits</p>
+                                <img src="icons/profile-icon.svg" alt="profile-icon">
+                                <p class="modal-profile__count">23</p>
+                            </div>
+                            <div class="info-box__card">
+                                <p class="modal-profile__text">Bonuses</p>
+                                <img src="icons/star-icon.svg" alt="star-icon">
+                                <p class="modal-profile__count">1240</p>
+                            </div>
+                            <div class="info-box__card">
+                                <p class="modal-profile__text">Books</p>
+                                <img src="icons/book-icon.svg" alt="book-icon">
+                                <p class="modal-profile__count">2</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="get-card">
@@ -367,10 +378,10 @@
                 <p class="modal__title modal-title">Login</p>
                 <form class="modal__form" action="">
                     <label class="modal__form-text" for="e-mail">E-mail or readers card</label>
-                    <input type="mail" id="e-mail">
+                    <input type="text" id="e-mail">
                     <label class="modal__form-text" for="Password">Password</label>
-                    <input type="password" id="Password" >
-                    <button class="button button-log-in">Log in</button>
+                    <input type="password" id="password" >
+                    <button class="button button-log-in" id="login-modal-btn">Log in</button>
                 </form>
                 <div class="modal__qa-wrapper">
                     <p class="modal__question">Don’t have an account?</p>
@@ -393,11 +404,11 @@
                     <input type="mail" id="e-mail-reg">
                     <label class="modal__form-text" for="password-reg">Password</label>
                     <input type="password" id="password-reg" >
-                    <button class="button button-sign-up">Sign Up</button>
+                    <button class="button button-sign-up" id="sign-up-modal-btn">Sign Up</button>
                 </form>
                 <div class="modal__qa-wrapper">
                     <p class="modal__question">Already have an account?</p>
-                    <button class="modal__answer log-in-button">Login</button>
+                    <button class="modal__answer log-in-button" >Login</button>
                 </div>
             </div>
         </div>
@@ -445,7 +456,7 @@
                     <div class="info-box__card">
                         <p class="modal-profile__text">Visits</p>
                         <img src="icons/profile-icon.svg" alt="profile-icon">
-                        <p class="modal-profile__count">23</p>
+                        <p class="modal-profile__count visits">23</p>
                     </div>
                     <div class="info-box__card">
                         <p class="modal-profile__text">Bonuses</p>
