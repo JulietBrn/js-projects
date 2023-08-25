@@ -151,30 +151,6 @@ paginationItems.forEach((pagItem, index) => {
   })
 })
 
-/* Switch season */
-let cardsBox = document.querySelector('.cards-box')
-let winterInput = document.querySelector('#winter')
-let springInput = document.querySelector('#spring')
-let summerInput = document.querySelector('#summer')
-let autumnInput = document.querySelector('#autumn')
-let seasonContant
-const buttonOwn = `<button disabled class="button button-own">Own</button>`
-
-
-// // Switch cards
-// function changeSeasonCard(season) {
-//   seasonContant = season
-//   cardsBox.removeChild(document.querySelector('.card-content'))
-//   cardsBox.insertAdjacentHTML('afterbegin', seasonContant)
-//   /* seasonContant.classList.add('active-card-content') */
-//   // seasonContant.classList.remove('hidden')
-// }
-
-// winterInput.addEventListener('click', () => changeSeasonCard(`${winter}`))
-// springInput.addEventListener('click', () => changeSeasonCard(`${spring}`))
-// summerInput.addEventListener('click', () => changeSeasonCard(`${summer}`))
-// autumnInput.addEventListener('click', () => changeSeasonCard(`${autumn}`))
-
 let boxInput = document.querySelectorAll('.box__input')
 boxInput.forEach(season => {
   season.addEventListener('click', ()=> {
@@ -210,15 +186,23 @@ boxInput.forEach(season => {
 
 
 /* Accounts */
+let currentUser
 let accounts = []
 /* load local storage */
 window.addEventListener('load', () => {
   const storedAccounts = JSON.parse(localStorage.getItem('accounts'));
   if (storedAccounts && Array.isArray(storedAccounts)) {
     accounts = storedAccounts;
+    let index = accounts.findIndex(account => account.activeUser == true)
+    if(index != -1) {
+      currentUser = accounts[index]
+      updateProfileAvatar(currentUser)
+      changeDropMenuToAuth()
+      updBtnsAndAddEvent()
+      /* нужно чтобы проверялись книги и кнопки заменялись на own */
+    }
   }
 });
-let currentUser
 
 /* ???????????????? */
 /* if(currentUser) {
@@ -240,6 +224,7 @@ class Account{
     this.books = 0;
     this.fullName;
     this.cardIsPaid = false;
+    this.activeUser = false;
   }
   createAvatar(firstName,lastName){
     this.avatar = `${(firstName.slice(0,1)+lastName.slice(0,1)).toUpperCase()}`
@@ -265,16 +250,42 @@ class Account{
     this.cardIsPaid = true
   }
 }
+/* BUY a library card */
 const payForCardBtn = document.querySelector('#pay-for-card')
+
 payForCardBtn.addEventListener('click', (e)=> {
   e.preventDefault()
+  const bigModalInputs = document.querySelectorAll('.big-modal__wrapper input')
+  
   //all fields are filled in
-  let bankCardNumValue = document.querySelector('#bank-card-number').value
-  if(bankCardNumValue == 16) {
-    currentUser.payForCard()
+  let result = checkInputs()
+  if(result) {
+    currentUser.cardIsPaid = true
+    updUserDataInStorage()
     closeModalWindow()
-  }
+  } else {alert('Please, check the fields.')}
 })
+
+function checkInputs(){
+  const month = document.querySelector('#expiration-code-month').value
+  const year = document.querySelector('#expiration-code-year').value
+  const cvc = document.querySelector('#cvc').value
+  const name = document.querySelector('#cardholder-name').value
+  const postalCode = document.querySelector('#postal-code').value
+  const city = document.querySelector('#city').value
+  let bankCardNumValue = document.querySelector('#bank-card-number').value
+  if(month != '' && year != '' && cvc != '' && name != '' && postalCode != '' && city != '' && bankCardNumValue.length == 16) {
+    return true
+  } else {false}
+}
+
+function updUserDataInStorage(){
+  const userIndex = accounts.findIndex(account => account.email === currentUser.email);
+    if (userIndex !== -1) {
+      accounts[userIndex] = currentUser;
+      localStorage.setItem('accounts', JSON.stringify(accounts));
+    }
+}
 
 /* MODAL WINDOWS */
 /* close-on click X */
@@ -304,15 +315,17 @@ modalWindows.forEach(window => {
 
 function closeDropMenu() {
   let dropMenu = document.querySelector('.visible-menu')
-  dropMenu.classList.add('hidden-menu')
-  dropMenu.classList.remove('visible-menu')
+  if(dropMenu) {
+    dropMenu.classList.add('hidden-menu')
+    dropMenu.classList.remove('visible-menu')
+  }
 }
 
 
 /* open modal LOGIN */
-const logInBtn = document.querySelectorAll('.log-in-button')
+let logInBtn = document.querySelectorAll('.log-in-button')
 const signUp = document.querySelector('.button-sign-up')
-const registerBtn = document.querySelectorAll('.register-button')
+let registerBtn = document.querySelectorAll('.register-button')
 let logOutBtn 
 let myProfileBtn = []
 
@@ -357,15 +370,14 @@ loginModalBtn.addEventListener('click', (e)=> {
     if(acc.password == passwordValue && passwordValue.length >=8 && (acc.email == emailOrReadersCardValue || acc.cardNumber == emailOrReadersCardValue)) {
       document.querySelectorAll('.modal-log-in input').forEach(val => val.value = '')
       closeModalWindow()
-      updateProfileAvatar(acc.fullName, acc.avatar)
-      
-      /* change drop menu + change profile = cardNumber */
-      /* acc.addVisitsQty() */
+      updateProfileAvatar(acc)
       currentUser = acc
-      // localStorage.setItem('accounts', JSON.stringify(accounts))
+      currentUser.visits ++
+      currentUser.activeUser = true
+      updUserDataInStorage()
       changeDropMenuToAuth()
       updBtnsAndAddEvent()
-      renderMyProfile(acc)
+      // renderMyProfile(currentUser)
     }
     // else { return alert('Password and Email or Card Number are incorrect')}
   })
@@ -373,7 +385,7 @@ loginModalBtn.addEventListener('click', (e)=> {
 
 /* open my profile window */
 const modalMyProfile = document.querySelector('#modal-my-profile')
-/* copy card number icon */
+/* copy card number icon !!!!!!!!!! doesnt work*/
 const copyCardNumIcon = document.querySelector('.copy-icon')
 copyCardNumIcon.addEventListener('click', () => {
   navigator.clipboard.writeText(`${document.querySelector('#profile__card-number')}`)
@@ -386,6 +398,7 @@ function updBtnsAndAddEvent(){
   myProfileBtn = document.querySelectorAll('.my-profile-button')
   myProfileBtn.forEach(val => {
     val.addEventListener('click', ()=> {
+      renderMyProfile(currentUser)
       modalMyProfile.classList.add('active-window')
       modalMyProfile.classList.remove('hidden-window')
       closeDropMenu()
@@ -412,11 +425,14 @@ function changeDropMenuToAuth() {
   <button class="log-out-button">Log Out</button>`
 }
 
-/* tologOut */
+/* to logOut */
 function toLogOut() {
   /* возврат аватарки */
   /* смена дроп меню */
   closeDropMenu()
+  currentUser.activeUser = false
+  updUserDataInStorage()
+  currentUser = ''
   let title = document.querySelector('.drop-menu-profile__title')
   title.textContent = 'Profile'
   title.classList.remove('drop-menu-profile__title_small')
@@ -424,10 +440,14 @@ function toLogOut() {
   btnsWrapper.innerHTML = `<button class="log-in-button">Log In</button>
   <button class="register-button">Register</button>`
   /* очистка карент юзера */
-  
   returnOldProfileAvatar()
-  
+  updBtnsCollection()
 }
+function updBtnsCollection(){
+  logInBtn = document.querySelectorAll('.log-in-button')
+  registerBtn = document.querySelectorAll('.register-button')
+}
+
 function returnOldProfileAvatar(){
   let profWrapper = document.querySelector('.icon-profile__wrapper')
   profWrapper.innerHTML = '<img src="icons/icon_profile.svg" alt="icon-profile" class="icon-profile" id="icon-profile">'
@@ -463,12 +483,14 @@ signUpModalBtn.addEventListener('click', (e)=>{
     account.createFullName(firstName, lastName)
     account.generateCardNumber()
     account.addVisitsQty()
+    account.activeUser = true
     accounts.push(account)
     localStorage.setItem('accounts', JSON.stringify(accounts))
-    updateProfileAvatar(account.fullName, account.avatar)
+    
     clearValue()
     closeModalWindow()
     currentUser = account
+    updateProfileAvatar(currentUser)
     changeDropMenuToAuth()
     updBtnsAndAddEvent()
   }
@@ -487,69 +509,48 @@ function clearValue(){
 /* localStorage.clear() */
 /* Отображение страницы приходит в состояние после авторизации (этап 4). +2
  */
-
-function updateProfileAvatar(fullName, avatar){
+/* update AVATAR */
+function updateProfileAvatar(acc){
   let oldAvatar = document.querySelector('.icon-profile')
   let newAvatar = document.createElement('p');
   newAvatar.className = 'icon-profile__after-auth icon-profile';
-  newAvatar.title = fullName;
-  newAvatar.textContent = avatar;
+  newAvatar.title = acc.fullName;
+  newAvatar.textContent = acc.avatar;
   document.querySelector('.icon-profile__wrapper').replaceChild(newAvatar, oldAvatar)
 }
 
 
 
 
-/* open buy-library-card before auth */
+/* BUY-btn behavior  */
 const modalBuy = document.querySelector('#modal-buy')
 let buyBtn = document.querySelectorAll('.button-buy')
-buyBtn.forEach(btn => {
+const btnsBuyWrapper = document.querySelectorAll('.section-favorites__btn-wrapper')
+const buttonOwn = `<button disabled class="button button-own">Own</button>`
+
+buyBtn.forEach((btn, i) => {
   btn.addEventListener('click', ()=> {
-    // карта не оплачена? => оплати карту
-    modalBuy.classList.add('active-window')
-    modalBuy.classList.remove('hidden-window')
-    // карта оплачена? => buy меняется на own счетчик +1
+    // before auth
+    if(!currentUser) {
+      logInModal.classList.add('active-window')
+      logInModal.classList.remove('hidden-window')
+    }
+    // card is not paid
+    if(currentUser && !currentUser.cardIsPaid) {
+      modalBuy.classList.add('active-window')
+      modalBuy.classList.remove('hidden-window')
+    }
+    //card is paid 
+    if(currentUser && currentUser.cardIsPaid) {
+      console.log(i);
+      btnsBuyWrapper[i].innerHTML = buttonOwn
+      currentUser.books++
+      updUserDataInStorage()
+    }
   })
 })
 /* При нажатии на любую кнопку Buy, после покупки абонемента, меняет вид кнопки на неактивную Own, добавляя единицу к счетчику книг в профиле. +2 */
 
-
-const dropMenuBeforeAuth = `
-<div class="drop-menu-profile__no-auth drop-menu-profile hidden-menu">
-  <p class="drop-menu-profile__title">Profile</p>
-  <hr class="drop-menu-profile__line">
-  <div class="drop-menu-profile__buttons-wrapper">
-    <button class="log-in-button">Log In</button>
-    <button class="register-button">Register</button>
-  </div>
-</div>`
-
-const dropMenuAfterAuth = `
-<div class="drop-menu-profile__auth drop-menu-profile hidden-menu">
-  <p class="drop-menu-profile__title">Profile</p>
-  <hr class="drop-menu-profile__line">
-  <div class="drop-menu-profile__buttons-wrapper">
-    <button class="my-profile-button">My profile</button>
-    <button class="log-out-button">Log Out</button>
-  </div>
-</div>`
-
-
-/* buy a library card */
-/* Для того, чтобы кнопка Buy была активна, все поля должны быть не пустыми. +2
-Bank card number должен содержать 16 цифр. С пробелами каждые 4 символа или нет - значения не имеет. +2
-Expiration code содержит 2 поля с ограничением в 2 цифры. +2
-CVC должен содержать 3 цифры. +2
-После удачного нажатия на кнопку Buy, окно закрывается, и больше мы к нему не возвращаемся. */
-const buyCardinputs = document.querySelectorAll('.big-modal__wrapper input')
-
-/* function checkBuyActive(){
-  buyCardinputs.forEach(val => {
-    if(val.value >0) {
-      // активируй кнопку
-    } else {alert('')}
-  })
-} */
 
 
 /*  Блок `Digital Library Cards`. */

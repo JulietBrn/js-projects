@@ -420,6 +420,10 @@ button {
     border: 1px solid #BB945F;
     background: #BB945F;
 }
+#pay-for-card {
+    padding: 9px 27px;
+    font-size: 10px;
+}
 #pay-for-card:hover {
     border: 1px solid #0C0C0E;
     color: #0C0C0E;
@@ -767,9 +771,9 @@ button {
     font-family: 'InterReg';
     font-size: 15px;
 }
-.modal__form .button {
+/* .modal__form .button {
     margin: 10px 0;
-}
+} */
 .modal input {
     border: 1px solid #BB945F;
     height: 19px;
@@ -827,7 +831,7 @@ button {
     display: grid;
     gap: 40px;
     grid-template-columns: 200px 1fr;
-    padding: 30px 40px 13px 40px;
+    padding: 30px 40px 40px 40px;
 }
 .big-modal__close-btn {
     position: absolute;
@@ -858,8 +862,9 @@ button {
 }
 .big-modal__button-wrapper {
     display: flex;
-    margin-top: 15px;
+    margin-top: 10px;
     gap: 25px;
+    align-items:flex-end;
 }
 .big-modal__price {
     color: #0C0C0E;
