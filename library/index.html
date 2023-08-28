@@ -159,7 +159,7 @@
                             <p class="card__title ">Staff Picks</p>
                             <hr class="card__line mb-20">
                             <p class="card__book-title ">The Last Queen</p>
-                            <p class="card__author text_bold mb-20"><span class="book-title">By Clive Irving</span></p>
+                            <p class="card__author text_bold mb-20"><span class="book-title card__book-author">By Clive Irving</span></p>
                             <p class="card__description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
                             <div class="section-favorites__btn-wrapper">
                                 <button class="button button-buy">Buy</button>
@@ -443,7 +443,7 @@
                             <div class="info-box__card">
                                 <p class="modal-profile__text">Visits</p>
                                 <img src="icons/profile-icon.svg" alt="profile-icon">
-                                <p class="modal-profile__count">23</p>
+                                <p class="modal-profile__count" id="your-card__visits" ></p>
                             </div>
                             <div class="info-box__card">
                                 <p class="modal-profile__text">Bonuses</p>
@@ -451,9 +451,9 @@
                                 <p class="modal-profile__count">1240</p>
                             </div>
                             <div class="info-box__card">
-                                <p class="modal-profile__text">Books</p>
+                                <p class="modal-profile__text" >Books</p>
                                 <img src="icons/book-icon.svg" alt="book-icon">
-                                <p class="modal-profile__count">2</p>
+                                <p class="modal-profile__count" id="your-card__books"></p>
                             </div>
                         </div>
                     </div>
@@ -543,7 +543,7 @@
                     <input type="text" id="e-mail">
                     <label class="modal__form-text" for="Password">Password</label>
                     <input type="password" id="password" >
-                    <button class="button button-log-in" id="login-modal-btn">Log in</button>
+                    <button class="button button-log-in modal__button" id="login-modal-btn">Log in</button>
                 </form>
                 <div class="modal__qa-wrapper">
                     <p class="modal__question">Don’t have an account?</p>
@@ -566,7 +566,7 @@
                     <input type="mail" id="e-mail-reg">
                     <label class="modal__form-text" for="password-reg">Password</label>
                     <input type="password" id="password-reg" >
-                    <button class="button button-sign-up" id="sign-up-modal-btn">Sign Up</button>
+                    <button class="modal__button button button-sign-up" id="sign-up-modal-btn">Sign Up</button>
                 </form>
                 <div class="modal__qa-wrapper">
                     <p class="modal__question">Already have an account?</p>
@@ -601,8 +601,9 @@
                     <label class="modal__form-text" for="city">City / Town</label>
                     <input type="text" id="city">
                     <div class="big-modal__button-wrapper">
-                        <button class="button" id="pay-for-card"  >Buy</button><!-- disabled="disabled" -->
+                        <button class="button disabled" id="pay-for-card" disabled="disabled" >Buy</button>
                         <p class="big-modal__price">$ 25.00</p>
+                        
                     </div>
                 </form>
                 <p class="big-modal__text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
@@ -641,8 +642,6 @@
                 <div class="modal-profile__rented-books rented-books">
                     <p class="rented-books__title">Rented books</p>
                     <ul class="modal-profile__book-list">
-                        <li class="modal-profile__text">The Last Queen, Clive Irving</li>
-                        <li class="modal-profile__text">Dominicana, Angie Cruz</li>
                     </ul>
                 </div>
                 <div class="modal-profile__card-number">

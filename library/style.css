@@ -227,7 +227,7 @@ header a {
     margin-bottom: 5px;
 }
 .drop-menu-profile__title_small {
-    font-size: 13px;
+    font-size: 12px;
 }
 .drop-menu-profile__buttons-wrapper {
     display: flex;
@@ -415,7 +415,7 @@ button {
     bottom: 15px;
 }
 
-.button-buy:hover, .button-check-card:hover,.button-sign-up:hover, .button-log-in:hover {
+.button-buy:hover, .button-sign-up:hover, .button-log-in:hover {
     border-radius: 2px;
     border: 1px solid #BB945F;
     background: #BB945F;
@@ -455,8 +455,8 @@ button {
     justify-content: space-between;
     /* transition: all 0.5s; */
     transition: all 0.5s;
-    opacity: 1;
-    visibility: visible;
+    /* opacity: 1;
+    visibility: visible; */
 } 
 .card-content-active {
     visibility: visible;
@@ -643,6 +643,11 @@ button {
     padding: 10px 0px;
     font-size: 10px;
 }
+#digital-library-cards .my-profile-button {
+    padding: 10px 0px;
+    width: 75px;
+    font-size: 10px;
+}
 .button-sign-up {
     margin-right: 20px;
 }
@@ -766,14 +771,13 @@ button {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 10px;
 }
 .modal__form-text {
     font-family: 'InterReg';
     font-size: 15px;
 }
-/* .modal__form .button {
-    margin: 10px 0;
-} */
+
 .modal input {
     border: 1px solid #BB945F;
     height: 19px;
@@ -783,10 +787,7 @@ button {
     display: flex;
     gap: 10px;
 }
-/* .modal__qa-wrapper button {
-    border: none;
-    background: white;
-} */
+
 .modal__question {
     text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
     font-family: 'InterReg';
@@ -802,6 +803,9 @@ button {
     line-height: normal;
     letter-spacing: 1px;
     text-decoration-line: underline;
+}
+.modal__button {
+    margin-top: 10px;
 }
 /* Big-modal */
 .big-modal {
@@ -831,7 +835,7 @@ button {
     display: grid;
     gap: 40px;
     grid-template-columns: 200px 1fr;
-    padding: 30px 40px 40px 40px;
+    padding: 30px 40px 30px 40px;
 }
 .big-modal__close-btn {
     position: absolute;
@@ -980,6 +984,8 @@ button {
 }
 .modal-profile__book-list {
     padding-left: 30px;
+    overflow-y: scroll;
+    height: 50px;
 }
 .modal-profile__count {
     font-size: 10px;
@@ -1021,6 +1027,11 @@ button {
 }
 .lib-cards-wrapper input:focus {
     color: #BB945F;
+}
+.copy-icon:hover {
+    cursor: pointer;
+    border-bottom:#BB945F 2px solid;
+    /* transition: all .4s; */
 }
 
 @media (max-width: 1430px) {

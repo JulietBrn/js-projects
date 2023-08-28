@@ -11,6 +11,9 @@ function toggleNav(){
   nav.classList.toggle('burger-menu')
   nav.classList.toggle('nav-hidden')
   burgerButton.classList.toggle('burger-rotate')
+  let dropMenu = document.querySelector('.drop-menu-profile')
+  dropMenu.classList.add('hidden-menu')
+  dropMenu.classList.remove('visible-menu')
 }
 burgerButton.addEventListener('click', toggleNav)
 
@@ -177,11 +180,9 @@ boxInput.forEach(season => {
       newEl.classList.toggle('card-content-active')
       newEl.classList.toggle('card-content-fade')
     }
+    
   })
 })
-
-
-
 
 
 
@@ -196,20 +197,37 @@ window.addEventListener('load', () => {
     let index = accounts.findIndex(account => account.activeUser == true)
     if(index != -1) {
       currentUser = accounts[index]
+      renderOwnedBooks(currentUser)
       updateProfileAvatar(currentUser)
       changeDropMenuToAuth()
       updBtnsAndAddEvent()
+      renderLibraryCardSectionAfterLogIn(currentUser)
       /* нужно чтобы проверялись книги и кнопки заменялись на own */
+      
     }
   }
 });
 
-/* ???????????????? */
-/* if(currentUser) {
-  changeDropMenuToAuth()
-  updateProfileAvatar(currentUser.fullName, currentUser.avatar)
+const bookTitles = document.querySelectorAll('.card__book-title')
+const bookAuthors = document.querySelectorAll('.card__author')
+const bookList = document.querySelector('.modal-profile__book-list')
+function renderOwnedBooks(currentUser){
+  bookList.innerHTML = ''
+  for(let i = 0; i<currentUser.rentedBooks.length; i++) {
+    let rentedBook
+    
+    if (currentUser.rentedBooks[i]== 1) {
+      btnsBuyWrapper[i].innerHTML = buttonOwn
+      /*  */
+      
+      rentedBook = document.createElement('li')
+      rentedBook.textContent = `${bookTitles[i].textContent}, ${bookAuthors[i].textContent.replace('By ', '')}`
+      rentedBook.classList.add('modal-profile__text')
+      bookList.append(rentedBook)
+    }
+  }
 }
- */
+
 
 /* create class */
 class Account{
@@ -225,6 +243,7 @@ class Account{
     this.fullName;
     this.cardIsPaid = false;
     this.activeUser = false;
+    this.rentedBooks = []
   }
   createAvatar(firstName,lastName){
     this.avatar = `${(firstName.slice(0,1)+lastName.slice(0,1)).toUpperCase()}`
@@ -249,7 +268,32 @@ class Account{
   payForCard() {
     this.cardIsPaid = true
   }
+  createRentedBooksArray(){
+    for(let i=0; i<16; i++) {
+      this.rentedBooks.push(0)
+    }
+    
+  }
 }
+/* active buy-btn in modal Buy a L Card */
+body.addEventListener('keyup', ()=> {
+  const month = document.querySelector('#expiration-code-month').value
+  const year = document.querySelector('#expiration-code-year').value
+  const cvc = document.querySelector('#cvc').value
+  const name = document.querySelector('#cardholder-name').value
+  const postalCode = document.querySelector('#postal-code').value
+  const city = document.querySelector('#city').value
+  let bankCardNumValue = document.querySelector('#bank-card-number').value
+  if(month != '' && year != '' && cvc != '' && name != '' && postalCode != '' && city != '' && bankCardNumValue !='') {
+    payForCardBtn.removeAttribute('disabled')
+    payForCardBtn.classList.remove('disabled')
+  } else {
+    payForCardBtn.setAttribute('disabled', 'disabled')
+    payForCardBtn.classList.add('disabled')
+  }
+})
+
+
 /* BUY a library card */
 const payForCardBtn = document.querySelector('#pay-for-card')
 
@@ -263,6 +307,7 @@ payForCardBtn.addEventListener('click', (e)=> {
     currentUser.cardIsPaid = true
     updUserDataInStorage()
     closeModalWindow()
+    
   } else {alert('Please, check the fields.')}
 })
 
@@ -274,10 +319,11 @@ function checkInputs(){
   const postalCode = document.querySelector('#postal-code').value
   const city = document.querySelector('#city').value
   let bankCardNumValue = document.querySelector('#bank-card-number').value
-  if(month != '' && year != '' && cvc != '' && name != '' && postalCode != '' && city != '' && bankCardNumValue.length == 16) {
+  if(month != '' && year != '' && cvc != '' && name != '' && postalCode != '' && city != '' && bankCardNumValue.length == 16 && cvc.length == 3) {
     return true
   } else {false}
 }
+
 
 function updUserDataInStorage(){
   const userIndex = accounts.findIndex(account => account.email === currentUser.email);
@@ -374,23 +420,25 @@ loginModalBtn.addEventListener('click', (e)=> {
       currentUser = acc
       currentUser.visits ++
       currentUser.activeUser = true
+      renderOwnedBooks(currentUser)
       updUserDataInStorage()
       changeDropMenuToAuth()
       updBtnsAndAddEvent()
-      // renderMyProfile(currentUser)
+      renderLibraryCardSectionAfterLogIn(currentUser)
     }
     // else { return alert('Password and Email or Card Number are incorrect')}
   })
 })
 
-/* open my profile window */
-const modalMyProfile = document.querySelector('#modal-my-profile')
-/* copy card number icon !!!!!!!!!! doesnt work*/
+/* copy card number icon */
 const copyCardNumIcon = document.querySelector('.copy-icon')
 copyCardNumIcon.addEventListener('click', () => {
-  navigator.clipboard.writeText(`${document.querySelector('#profile__card-number')}`)
+  navigator.clipboard.writeText(`${currentUser.cardNumber}`)
 })
 
+
+/* open my profile window */
+const modalMyProfile = document.querySelector('#modal-my-profile')
 /* Update btns LOG OUT and MY PROFILE */
 function updBtnsAndAddEvent(){
   logOutBtn = document.querySelector('.log-out-button')
@@ -405,14 +453,18 @@ function updBtnsAndAddEvent(){
     })
   })
 }
-/* render MY PROFILE */
+/* render MY PROFILE modal window*/
 function renderMyProfile(account){
   document.querySelector('#profile__avatar').textContent = account.avatar 
   document.querySelector('#profile__full-name').textContent = account.fullName 
   document.querySelector('#profile__card-visits').textContent = account.visits 
   document.querySelector('#profile__card-books').textContent = account.books 
   document.querySelector('#profile__card-number').textContent = account.cardNumber
-  //add render books
+  renderOwnedBooks(currentUser)
+}
+function renderStatInYourCard(account) {
+  document.querySelector('#your-card__visits').textContent = account.visits 
+  document.querySelector('#your-card__books').textContent = account.books 
 }
 
 
@@ -442,6 +494,7 @@ function toLogOut() {
   /* очистка карент юзера */
   returnOldProfileAvatar()
   updBtnsCollection()
+  document.location.reload()
 }
 function updBtnsCollection(){
   logInBtn = document.querySelectorAll('.log-in-button')
@@ -484,13 +537,16 @@ signUpModalBtn.addEventListener('click', (e)=>{
     account.generateCardNumber()
     account.addVisitsQty()
     account.activeUser = true
+    account.createRentedBooksArray()
     accounts.push(account)
+    
     localStorage.setItem('accounts', JSON.stringify(accounts))
     
     clearValue()
     closeModalWindow()
     currentUser = account
     updateProfileAvatar(currentUser)
+    renderLibraryCardSectionAfterLogIn(currentUser)
     changeDropMenuToAuth()
     updBtnsAndAddEvent()
   }
@@ -542,9 +598,10 @@ buyBtn.forEach((btn, i) => {
     }
     //card is paid 
     if(currentUser && currentUser.cardIsPaid) {
-      console.log(i);
       btnsBuyWrapper[i].innerHTML = buttonOwn
+      currentUser.rentedBooks[i] = 1
       currentUser.books++
+      renderLibraryCardSectionAfterLogIn(currentUser)
       updUserDataInStorage()
     }
   })
@@ -562,9 +619,11 @@ checkCardBtn.addEventListener('click', ()=> {
   const storedAccounts = JSON.parse(localStorage.getItem('accounts'))
   storedAccounts.forEach((acc, i) => {
     if(acc.cardNumber == cardNumberValue && acc.fullName == nameValue) {
+      renderStatInYourCard(acc)
       document.querySelector('.button-check-card__wrapper').classList.add('hidden')
       document.querySelector('.modal-profile__info-box').classList.remove('hidden')
       document.querySelector('.find-your-card__title').textContent = 'Your Library card'
+      
       setTimeout(function(){
         document.querySelector('.button-check-card__wrapper').classList.remove('hidden')
         document.querySelector('.modal-profile__info-box').classList.add('hidden')
@@ -575,3 +634,29 @@ checkCardBtn.addEventListener('click', ()=> {
   })
 
 })
+
+/* LibraryCard after login in account */
+function renderLibraryCardSectionAfterLogIn(acc) {
+  console.log(acc);
+  renderStatInYourCard(acc)
+  document.querySelector('.find-your-card__title').textContent = 'Your Library card'
+  document.querySelector('.button-check-card__wrapper').classList.add('hidden')
+  document.querySelector('.modal-profile__info-box').classList.remove('hidden')
+  document.querySelector('#name').value = `${acc.fullName}`
+  document.querySelector('#card-number').value = acc.cardNumber
+  let oldLibrCardSect = document.querySelector('.get-card')
+  oldLibrCardSect.innerHTML = `<p class="get-card__title">Visit your profile</p>
+  <p class="get-card__description text">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+  <div class="get-card__button-box button-box">
+      <button class="button button-profile my-profile-button">Profile</button>
+  </div>`
+  myProfileBtn = document.querySelectorAll('.my-profile-button')
+  myProfileBtn.forEach(val => {
+    val.addEventListener('click', ()=> {
+      renderMyProfile(acc)
+      modalMyProfile.classList.add('active-window')
+      modalMyProfile.classList.remove('hidden-window')
+    })
+  })
+}
+
