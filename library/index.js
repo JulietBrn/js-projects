@@ -202,8 +202,6 @@ window.addEventListener('load', () => {
       changeDropMenuToAuth()
       updBtnsAndAddEvent()
       renderLibraryCardSectionAfterLogIn(currentUser)
-      /* нужно чтобы проверялись книги и кнопки заменялись на own */
-      
     }
   }
 });
@@ -218,8 +216,7 @@ function renderOwnedBooks(currentUser){
     
     if (currentUser.rentedBooks[i]== 1) {
       btnsBuyWrapper[i].innerHTML = buttonOwn
-      /*  */
-      
+      /* create Rented books <название книги>, <автор книги> */
       rentedBook = document.createElement('li')
       rentedBook.textContent = `${bookTitles[i].textContent}, ${bookAuthors[i].textContent.replace('By ', '')}`
       rentedBook.classList.add('modal-profile__text')
