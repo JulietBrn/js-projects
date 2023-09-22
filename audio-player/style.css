@@ -11,6 +11,10 @@ section {
 a {
   text-decoration: none;
 }
+/* audio {
+  position: absolute;
+  z-index: -5;
+} */
 .text {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -73,6 +77,11 @@ a {
 }
 .play-pause-arrow {
   width: 40px;
+  height: 40px;
+  background: url(icons/play-circle.svg) center/cover no-repeat;
+}
+.pause {
+  background: url(icons/pause-circle.svg) center/cover no-repeat;
 }
 .arrows-box {
   display: flex;
@@ -82,9 +91,18 @@ a {
 .arrow-control {
   width: 20px;
 }
-.mute-icon {
+/* .mute-icon {
   width: 20px;
   padding-top: 4px;
+} */
+.mute-box {
+  background: url(icons/volume-down.svg) center/cover no-repeat;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+.mute-off {
+  background: url(icons/volume-mute.svg) center/cover no-repeat;
 }
 
 /* progress-bar */
