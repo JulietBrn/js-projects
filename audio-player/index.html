@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio-player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio src="audio/beyonce.mp3" preload="auto" id="track" controls ></audio>
+  <section>
+    <div class="bg">
+      <img class="bg-image" src="img/lemonade.png" alt="background">
+    </div>
+    <div class="audio-container audio-player">
+      <div class="audio-player__img-box">
+        <img class="audio-player__img" src="img/lemonade.png" alt="song-background">
+      </div>
+      <div class="audio-player__controls">
+        <div alt="play or pause" class="play-pause-arrow">
+        </div>
+        <div>
+          <p class="track-singer text text_title">Beyonce</p>
+          <p class="track-name text">Don't Hurt Yourself</p>
+        </div>
+        <div class="arrows-box">
+          <img src="icons/back-arrow.svg" alt="prev-arrow" class="prev-arrow arrow-control">
+          <img src="icons/next-arrow.svg" alt="next-arrow" class="next-arrow arrow-control">
+        </div>
+        <div class="">
+          <p class="current-time text text_small">0:00</p>
+          <p class="track-length-time text text_small" id="track-duration">3:53</p>
+        </div>
+        <input class="progress-bar" type="range">
+        <div class="mute-box">
+          <!-- <img src="icons/volume-down.svg" alt="mute-icon" class="mute-icon"> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer">
+      <p class="footer__year text">2023</p>
+      <div class="footer__school-logo"><a target="_blank" title="click on me" href="https://rs.school/js/"><img src="icons/logo__rs_school_js.svg" alt="logo__rs_school"></a></div>
+      <p class="footer__my-name text"><a target="_blank" href="https://github.com/JulietBrn">Julia</a></p>
+    </div> 
+  </footer><!-- //в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5 -->
+  <script src="js/script.js"></script>
+</body>
+</html>
