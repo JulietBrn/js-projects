@@ -29,7 +29,7 @@ audio {
 .text_small {
   font-size: 12px;
 }
-.play-pause-arrow, .arrow-control, .mute-box, .footer__school-logo, .footer__my-name {
+.play-pause-arrow, .arrow-control, .progress-bar, .mute-box, .footer__school-logo, .footer__my-name {
   cursor: pointer;
 }
 .bg {
