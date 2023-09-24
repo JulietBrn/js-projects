@@ -17,12 +17,7 @@ let seconds
 
 
 audio.addEventListener('loadedmetadata', ()=> {
-  if(document.querySelector('#track-duration').value === 'NaN:NaN') {
-    document.querySelector('#track-duration').textContent === '0:00'
-  } else {
-    document.querySelector('#track-duration').textContent = updDuration()
-  }
-  
+  trackDuration.textContent = updDuration()
 })
 
 function updDuration() {
@@ -76,7 +71,9 @@ function prevTrack() {
   } 
   /* updDuration */
   audio = document.querySelector('#track')
-  trackDuration.textContent = updDuration()
+  audio.addEventListener('loadedmetadata', () => {
+    trackDuration.textContent = updDuration();
+  });
 }
 
 function nextTrack() {
@@ -97,7 +94,9 @@ function nextTrack() {
     audio.play()
     console.log('hi');
   } 
-  trackDuration.textContent = updDuration()
+  audio.addEventListener('loadedmetadata', () => {
+    trackDuration.textContent = updDuration();
+  });
 }
 /* Next Btn */
 buttonNextTrack.addEventListener('click', ()=> {
