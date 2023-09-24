@@ -52,11 +52,9 @@ function setAttribute(index) {
   document.querySelector('.audio-player__img').setAttribute('src', audiosCover[index])
   trackSinger.textContent = trackSingers[index]
   trackName.textContent = trackNames[index]
-  
 }
 
-/* Next Btn */
-buttonNextTrack.addEventListener('click', ()=> {
+function prevTrack() {
   /* new track */
   let isAudioPaused = audio.paused
   let currIndex = audiosSrc.indexOf(audio.getAttribute('src'))
@@ -73,17 +71,10 @@ buttonNextTrack.addEventListener('click', ()=> {
   } 
   /* updDuration */
   audio = document.querySelector('#track')
-  audio.addEventListener('loadedmetadata', ()=> {
-    trackDuration.textContent = updDuration()
-  })
-  buttonPlayAudio.addEventListener('click', ()=> {
-    buttonPlayAudio.classList.toggle('pause')
-    playAudio()
-  })
-})
+  trackDuration.textContent = updDuration()
+}
 
-/* Prev Btn */
-buttonPrevTrack.addEventListener('click', ()=> {
+function nextTrack() {
   /* new track */
   let isAudioPaused = audio.paused
   let currIndex = audiosSrc.indexOf(audio.getAttribute('src'))
@@ -101,28 +92,30 @@ buttonPrevTrack.addEventListener('click', ()=> {
     audio.play()
   } 
   trackDuration.textContent = updDuration()
-  audio.addEventListener('loadeddata', ()=> {
-    buttonPlayAudio.addEventListener('click', ()=> {
-      buttonPlayAudio.classList.toggle('pause')
-      playAudio()
-    })
-  })
+}
+/* Next Btn */
+buttonNextTrack.addEventListener('click', ()=> {
+  prevTrack()
+})
+
+/* Prev Btn */
+buttonPrevTrack.addEventListener('click', ()=> {
+  nextTrack()
 })
 
 /* play or pause */
 function playAudio() {
-  if(audio.paused) {
+  if(!isPlaying) {
     audio.play()
   } else {
     audio.pause()
   }
+  isPlaying = !isPlaying
 }
 /* play / pause audio */
-audio.addEventListener('loadeddata', ()=> {
-  buttonPlayAudio.addEventListener('click', ()=> {
-    buttonPlayAudio.classList.toggle('pause')
-    playAudio()
-  })
+buttonPlayAudio.addEventListener('click', ()=> {
+  buttonPlayAudio.classList.toggle('pause')
+  playAudio()
 })
 
 /* progress bar */
