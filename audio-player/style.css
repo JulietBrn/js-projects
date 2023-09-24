@@ -86,14 +86,8 @@ audio {
   background: url(icons/play-circle.svg) center/cover no-repeat;
   transition: all .4s;
 }
-.play-pause-arrow:hover {
-  background: url(icons/colored-play-circle.svg) center/cover no-repeat;
-}
 .pause {
   background: url(icons/pause-circle.svg) center/cover no-repeat;
-}
-.pause:hover {
-  background: url(icons/colored-pause-circle.svg) center/cover no-repeat;
 }
 .arrows-box {
   display: flex;
@@ -111,12 +105,6 @@ audio {
 .next-arrow {
   background: url(icons/next-arrow.svg) center/cover no-repeat;
 }
-.prev-arrow:hover {
-  background: url(icons/colored-back-circle.svg) center/cover no-repeat;
-}
-.next-arrow:hover {
-  background: url(icons/colored-next-circle.png) center/cover no-repeat;
-}
 .mute-box {
   background: url(icons/volume-down.svg) center/cover no-repeat;
   width: 20px;
@@ -124,14 +112,8 @@ audio {
   z-index: 2;
   transition: all .4s;
 }
-.mute-box:hover {
-  background: url(icons/colored-volume-down.svg) center/cover no-repeat;
-}
 .mute-off {
   background: url(icons/volume-mute.svg) center/cover no-repeat;
-}
-.mute-off:hover {
-  background: url(icons/colored-volume-mute.svg) center/cover no-repeat;
 }
 
 /* progress-bar */
@@ -171,4 +153,30 @@ input[type=range]::-webkit-slider-thumb {
 }
 .footer__year, .footer__my-name {
   letter-spacing: 5px;
+}
+.footer__my-name a:hover {
+  color:#805959
+}
+.footer__my-name a {
+  transition: all .4s;
+}
+@media (min-width:640px) {
+  .play-pause-arrow:hover {
+    background: url(icons/colored-play-circle.svg) center/cover no-repeat;
+  }
+  .prev-arrow:hover {
+    background: url(icons/colored-back-circle.svg) center/cover no-repeat;
+  }
+  .next-arrow:hover {
+    background: url(icons/colored-next-circle.png) center/cover no-repeat;
+  }
+  .mute-box:hover {
+    background: url(icons/colored-volume-down.svg) center/cover no-repeat;
+  }
+  .mute-off:hover {
+    background: url(icons/colored-volume-mute.svg) center/cover no-repeat;
+  }
+  .pause:hover {
+    background: url(icons/colored-pause-circle.svg) center/cover no-repeat;
+  }
 }
