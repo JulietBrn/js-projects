@@ -1,0 +1,40 @@
+body, body * {
+  margin: 0;
+  padding: 0;
+}
+body >* {
+  box-sizing: border-box;
+}
+section {
+  position: relative;
+  margin-bottom: 7px;
+}
+a {
+  text-decoration: none;
+  color:black;
+}
+
+
+
+/* footer */
+.footer {
+  display: grid;
+  max-width: 1000px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+}
+.footer__school-logo {
+  width: 150px;
+}
+.footer__year, .footer__my-name {
+  letter-spacing: 5px;
+}
+.footer__my-name a:hover {
+  color:#805959
+}
+.footer__my-name a {
+  transition: all .4s;
+}
