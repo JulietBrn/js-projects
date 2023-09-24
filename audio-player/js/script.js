@@ -90,6 +90,7 @@ function nextTrack() {
   audio.currentTime = 0
   if(!isAudioPaused) {
     audio.play()
+    console.log('hi');
   } 
   trackDuration.textContent = updDuration()
 }
@@ -130,7 +131,11 @@ setInterval(updProgress, 500)
 progressBar.addEventListener('change', ()=> {
   audio.currentTime = progressBar.value
 })
-
+/* next song after ending current */
+audio.addEventListener('ended', ()=> {
+  nextTrack()
+  audio.play()
+})
 /* mute / unmute */
 muteIcon.addEventListener('click', ()=> {
   /* add/delete volume */
