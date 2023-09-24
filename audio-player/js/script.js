@@ -92,7 +92,6 @@ function nextTrack() {
   audio.currentTime = 0
   if(!isAudioPaused) {
     audio.play()
-    console.log('hi');
   } 
   audio.addEventListener('loadedmetadata', () => {
     trackDuration.textContent = updDuration();
