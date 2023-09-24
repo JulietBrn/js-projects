@@ -17,7 +17,12 @@ let seconds
 
 
 audio.addEventListener('loadedmetadata', ()=> {
-  trackDuration.textContent = updDuration()
+  if(document.querySelector('#track-duration').value === 'NaN:NaN') {
+    document.querySelector('#track-duration').textContent === '0:00'
+  } else {
+    document.querySelector('#track-duration').textContent = updDuration()
+  }
+  
 })
 
 function updDuration() {
