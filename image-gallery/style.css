@@ -1,0 +1,131 @@
+body, body * {
+  margin: 0;
+  padding: 0;
+}
+body >* {
+  box-sizing: border-box;
+}
+body {
+  margin: 20px;
+}
+section {
+  position: relative;
+  margin-bottom: 40px;
+}
+a {
+  text-decoration: none;
+  color:black;
+}
+li {
+  list-style-type: none;
+}
+.text {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* header */
+.header-container {
+  /* position: sticky;
+  top: 0;
+  z-index: 10; */
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  margin-bottom: 40px;
+  padding: 10px 0;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo-container {
+  display: flex;
+  gap: 15px;
+}
+
+.list {
+  display: flex;
+  gap: 5px 15px ;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+.list-item {
+  color: gray;
+  transition: all .4s;
+  cursor: pointer;
+  padding: 5px 0;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+.list-item:hover {
+  color: black;
+}
+/* input */
+.input-container {
+  position: relative;
+}
+.search {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  height: 12px;
+  opacity: .8;
+}
+.search-input {
+  padding: 15px;
+  padding-left: 35px;
+  width: 60%;
+}
+.clear-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  position: absolute;
+  left: 63%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* image-container */
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+}
+.gallery-img {
+  width: 100%;
+}
+/* footer */
+.footer {
+  display: grid;
+  max-width: 1000px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+  border-top: gray 1px solid;
+  padding-top: 20px;
+}
+.footer__school-logo {
+  width: 150px;
+}
+.footer__year, .footer__my-name {
+  letter-spacing: 5px;
+}
+.footer__my-name a:hover {
+  color:#805959
+}
+.footer__my-name a {
+  transition: all .4s;
+}
+
+@media (max-width: 1000px) {
+  .clear-btn {
+    left: 68%;
+  }
+}
