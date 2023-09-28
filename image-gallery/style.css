@@ -22,6 +22,11 @@ li {
 .text {
   font-family: Arial, Helvetica, sans-serif;
 }
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
 /* header */
 .header-container {
@@ -80,9 +85,6 @@ header {
   width: 60%;
 }
 .clear-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
   padding: 5px;
   position: absolute;
   left: 63%;
@@ -95,10 +97,24 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 10px;
+  align-items: stretch;
 }
 .gallery-img {
   width: 100%;
+  
 }
+/* btn more
+.more-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.more-btn {
+  border: 1px solid gray;
+  padding: 10px 35px;
+  color: gray;
+} */
+
+
 /* footer */
 .footer {
   display: grid;
