@@ -8,7 +8,6 @@ clearBtn.addEventListener('click', ()=> {
   input.value = ''
 })
 
-
 /* API */
 let url = 'https://api.unsplash.com/search/photos?query=winter&per_page=18&orientation=landscape&client_id=j5Yspgdlp2VF8Zac_gnLgdx9eeKKn-WA9RJ6rNlsUms'
 async function getData() {
@@ -48,3 +47,10 @@ listItemsArray.forEach(el => {
     getData()
   })
 })
+
+// /* add more photos */
+// const moreBtn = document.querySelector('.more-btn')
+// moreBtn.addEventListener('click', (e)=> {
+//   e.preventDefault()
+//   url = 'https://api.unsplash.com/search/photos?query=winter&per_page=30&orientation=landscape&client_id=j5Yspgdlp2VF8Zac_gnLgdx9eeKKn-WA9RJ6rNlsUms'
+// })
