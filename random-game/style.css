@@ -18,27 +18,49 @@ a {
   text-decoration: none;
   color:#9086A1;
 }
-li {
+/* li {
   list-style-type: none;
-}
+} */
 /* palette #05588A #9086A1 #181E36 #62BAD0 #4B294E */
 .text {
   font-family: Arial, Helvetica, sans-serif;
   color: #9086A1
 }
+.text_bold {
+  font-weight: 800;
+}
 
 /* header */
-header, .game-container {
+header, .game-container  {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
 }
 .title {
   font-family: 'rubikMono';
-  color: #05588A
+  color: #05588A;
+  margin-top: 40px;
 } 
 
 /* game container */
+.game-container {
+  position: relative;
+  /* display: grid;
+  grid-template-columns: .3fr .6fr;
+  gap: 50px;
+  margin-bottom: 50px;
+  margin-left: 20px; */
+}
+/* score */
+.score-wrapper {
+  position: absolute;
+  left: 5%;
+  top: 0;
+}
+.score-table__title {
+  font-family: 'rubikMono';
+  margin-bottom: 10px;
+}
 .game-cards {
   display: grid;
   grid-template-columns: repeat(4, 100px);
