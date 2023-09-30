@@ -1,5 +1,5 @@
 @font-face {
-  font-family: rubikMono;
+  font-family: 'rubikMono';
   src: url(font/RubikMonoOne-Regular.ttf);
 }
 
@@ -30,6 +30,9 @@ a {
 .text_bold {
   font-weight: 800;
 }
+.text_center {
+  text-align: center;
+}
 
 /* header */
 header, .game-container  {
@@ -52,7 +55,6 @@ header, .game-container  {
   gap: 50px;
   margin-bottom: 50px;
   margin-left: 20px;
-  
 }
 /* score */
 /* .score-wrapper {
@@ -60,9 +62,15 @@ header, .game-container  {
   left: 5%;
   top: 0;
 } */
+.score-table {
+  margin-bottom: 50px;
+}
 .score-table__title {
   font-family: 'rubikMono';
   margin-bottom: 10px;
+}
+.best-score {
+  transform: translateX(-20px);
 }
 .game-cards {
   position: relative;

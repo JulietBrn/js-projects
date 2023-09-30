@@ -77,11 +77,8 @@ cards.forEach(card => card.addEventListener('click', checkAllCardsReversed))
 function checkAllCardsReversed(){
   setTimeout(()=> {
     let arrLength = document.querySelectorAll('.reverse').length
-    console.log(document.querySelectorAll('.reverse'));
     if(arrLength === 16) {
-      console.log('ok');
       currentGamer.score = countClick
-      console.log(currentGamer);
       /* add gamer to scoreList */
       scoreList.unshift(currentGamer)
       /* render actual scoreTable */
@@ -89,8 +86,6 @@ function checkAllCardsReversed(){
       clearRenderedList()
       updRenderedList()
       addCover()
-    } else {
-      console.log(`${arrLength}`);
     }
   }, 300)
   
@@ -113,12 +108,24 @@ function updRenderedList(){
     let listItem = `<li class="text">${gamer.name} - ${gamer.score}</li>`
     renderedList.insertAdjacentHTML('beforeend', listItem)
   })
+  if(scoreList) {
+    findBestPlayer()
+  }
 } 
 /* find the best player */
 function findBestPlayer(){
-  let bestIndex
-
+  let scoreArr = []
+  scoreList.forEach(gamer => {
+    scoreArr.push(gamer.score)
+  })
+  let bestIndex = scoreArr.indexOf(Math.min(...scoreArr))
+  let bestPlayer = scoreList[bestIndex]
+  document.querySelector('.best-score').innerHTML = ''
+  bestPlayer = `
+  <p class="text text_bold ">BEST RESULT<br> ⭐${bestPlayer.name} - ${bestPlayer.score}⭐</p>`
+  document.querySelector('.best-score').insertAdjacentHTML('beforeend', bestPlayer)
 }
+
 /* remove reverse class all cards */
 
 function resetGame() {
@@ -135,8 +142,6 @@ let scoreList = []
 /* load local storage */
 window.addEventListener('load', () => {
   let storedGamers = JSON.parse(localStorage.getItem('scoreList'))
-  
-  console.log(storedGamers);
   if(storedGamers) {
     if (storedGamers.length >= 10) {
       storedGamers = storedGamers.slice(0,10)
@@ -175,7 +180,6 @@ newGameBtn.addEventListener('click', (e)=> {
   let currName = document.querySelector('.input-name').value
   if(currName) {
     currentGamer = new gamerScore(currName)
-    console.log(currentGamer);
     return currentGamer
   }
   return currentGamer
