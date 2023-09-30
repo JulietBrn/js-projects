@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" sizes="57x57" href="icons/fav-icon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="icons/fav-icon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="icons/fav-icon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="icons/fav-icon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="icons/fav-icon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/fav-icon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="icons/fav-icon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/fav-icon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/fav-icon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="icons/fav-icon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/fav-icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="icons/fav-icon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/fav-icon/favicon-16x16.png">
+  <link rel="manifest" href="icons/fav-icon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="icons/fav-icon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <title>Memory game</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class=" text title">Memory game</h1>
+    </header>
+    <div class="game-container">
+      <div class="score-wrapper">
+        <!-- <div class="best-score">
+          <p class="text">⭐BEST RESULT: Dar - 15⭐</p>
+        </div> -->
+        <div class="new-game__wrapper">
+          <div class="input__wrapper"><input placeholder="Fill in your name" type="text" class="input-name" autofocus></div>
+        <div class="btn-wrapper">
+          <button class="new-game-btn text">NEW GAME</button>
+        </div>
+        </div>
+        
+        <div class="score-table">
+          <h2 class="text score-table__title">Score</h2>
+          <ol class="list">
+            <!-- <li class="text">Julia - 30</li>
+            <li class="text text_bold">Dar - 15 <span title="BEST SCORE">⭐</span></li>
+            <li class="text">Pulo - 99</li>
+            <li class="text">Lola - 35</li> -->
+          </ol>
+        </div>
+      </div>
+      <div class="game-cards-cover"></div>
+      <div class="game-cards">
+        
+        <div class="game-cards__card">
+          <img src="img/8.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/6.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/1.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/2.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/3.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/4.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        
+        <div class="game-cards__card">
+          <img src="img/4.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/5.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/8.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/1.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/2.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/3.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/7.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/5.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        <div class="game-cards__card">
+          <img src="img/6.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+        
+        <div class="game-cards__card">
+          <img src="img/7.png" alt="front-side" class="card__front-side">
+          <img src="img/backside.jpg" alt="back-side" class="card__back-side">
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <p class="footer__year text">2023</p>
+        <div class="footer__school-logo"><a target="_blank" title="click on me" href="https://rs.school/js/"><img src="icons/logo__rs_school_js.svg" alt="logo__rs_school"></a></div>
+        <p class="footer__my-name text"><a target="_blank" href="https://github.com/JulietBrn">Julia</a></p>
+      </div> 
+    </footer>
+    
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
