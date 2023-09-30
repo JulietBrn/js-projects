@@ -114,6 +114,11 @@ function updRenderedList(){
     renderedList.insertAdjacentHTML('beforeend', listItem)
   })
 } 
+/* find the best player */
+function findBestPlayer(){
+  let bestIndex
+
+}
 /* remove reverse class all cards */
 
 function resetGame() {
@@ -130,17 +135,18 @@ let scoreList = []
 /* load local storage */
 window.addEventListener('load', () => {
   let storedGamers = JSON.parse(localStorage.getItem('scoreList'))
-  if (storedGamers.length > 10) {
-    storedGamers.pop()
-  }
+  
   console.log(storedGamers);
   if(storedGamers) {
+    if (storedGamers.length >= 10) {
+      storedGamers = storedGamers.slice(0,10)
+    }
     scoreList = storedGamers
     clearRenderedList()
     updRenderedList()
   }
 })
-addCover()
+
 /* upd local st */
 function updLocalStorage(){
   localStorage.setItem('scoreList', JSON.stringify(scoreList));
@@ -154,6 +160,8 @@ class gamerScore {
 
 
 /* new game */
+addCover()
+
 const newGameBtn = document.querySelector('.new-game-btn')
 newGameBtn.addEventListener('click', (e)=> {
   e.preventDefault()
