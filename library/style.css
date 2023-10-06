@@ -1312,6 +1312,9 @@ button {
     
 }
 @media (max-width: 500px) {
+    .welcome {
+        min-height: 500px;
+    }
     .nav-wrapper {
         column-gap: 20px;
     }
@@ -1345,7 +1348,6 @@ button {
     } 
     .get-card__description {
         padding: 0 10px;
-/*         width: 80%; */
     }
     .img-box {
         width: 100%;
