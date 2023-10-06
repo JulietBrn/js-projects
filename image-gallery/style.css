@@ -62,7 +62,6 @@ header {
   cursor: pointer;
   padding: 5px 0;
   font-family: Arial, Helvetica, sans-serif;
-
 }
 .list-item:hover {
   color: black;
@@ -71,11 +70,16 @@ header {
 .input-container {
   position: relative;
 }
+.message {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
 .search {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 15px;
+  left: 10px;
+  padding: 5px;
   height: 12px;
   opacity: .8;
 }
