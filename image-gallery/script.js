@@ -20,8 +20,6 @@ async function getData() {
     const res = await fetch(url);
     const data = await res.json();
     if(data.total == 0) {
-      console.log(data);
-      console.log('There are no any results');
       const messageNoRes = '<p class="message">There are no results for your request...</p>'
       imageContainer.insertAdjacentHTML('afterbegin', messageNoRes)
     } else {
