@@ -304,7 +304,11 @@ header a {
 }
 .arrow {
     visibility: hidden;
+    background:#FFF;
+    border-radius:50px;
+    z-index: 5;
 }
+
 
 /* favorites */
 .section-favorites__box > * {
@@ -1305,6 +1309,7 @@ button {
     .contacts__list-item {
         margin-bottom: 0;
     }
+    
 }
 @media (max-width: 500px) {
     .nav-wrapper {
@@ -1345,11 +1350,7 @@ button {
     .img-box {
         width: 100%;
     }
-    .arrow {
-        background:#FFF;
-        border-radius:50px;
-        z-index: 5;
-    }
+    
     #left-arrow {
         left: 15px;
     }
