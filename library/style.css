@@ -1268,3 +1268,150 @@ button {
         row-gap: 15px;
     }
 }
+@media (max-width: 640px) {
+    .card {
+        width: 88%;
+        height: min-content;
+    }
+    .card__description {
+        padding-bottom: 50px;
+    }
+    .card__image {
+        top: -1px;
+        right: -29px;
+    }
+    .card__image img {
+        width: 120px;
+    }
+    .card__book-title  {
+        width: 70%;
+    }
+    .table {
+        border-spacing: 30px 27px;
+    }
+    .menu__line {
+        width: 68px;
+    }
+    .table_right, .table_left {
+        transform: translateX(0px);
+    }
+    .contacts__map img {
+        margin: 0;
+    }
+    .contacts-wrapper {
+        grid-template-rows: repeat(2, min-content);
+        gap: 40px;
+    }
+    .contacts__list-item {
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 500px) {
+    .nav-wrapper {
+        column-gap: 20px;
+    }
+    .main-title {
+        font-size: 30px;
+        padding: 35px 40px;
+    }
+    .second-title {
+        font-size: 32px;
+    }
+    .text {
+        font-size: 16px;
+        line-height: 30px;
+        letter-spacing: 1px;
+    }
+    .header-wrapper {
+        gap: 20px;
+    }
+    .find-your-card__title {
+        font-size: 24px;
+    }
+    .box__label:not(:last-child) {
+        margin-right: 20px
+    }
+    .mb-40 { /* //.season-selector */
+        margin-bottom: 20px;
+    }
+    .card__description {
+        line-height: 36px;
+
+    } 
+    .get-card__description {
+        padding: 0 10px;
+/*         width: 80%; */
+    }
+    .img-box {
+        width: 100%;
+    }
+    .arrow {
+        background:#FFF;
+        border-radius:50px;
+        z-index: 5;
+    }
+    #left-arrow {
+        left: 15px;
+    }
+    #right-arrow {
+        right: 15px;
+    }
+    .library-card__title {
+        font-size: 24px;
+    }
+    .library-card__input-field {
+        padding: 0px 20px;
+    }
+    .footer-wrapper {
+        align-items:start;
+    }
+    .footer p,.footer a{
+        font-size: 14px;
+    }
+    .footer__rs {
+        gap: 20px;
+    }
+    .big-modal__wrapper {
+        gap: 20px;
+        padding: 20px;
+    }
+    .modal-title_big {
+        font-size: 28px;
+    }
+    .big-modal__text {
+        font-size: 13px;
+        letter-spacing: 0;
+    }
+    .big-modal__wrapper .modal__form-text {
+        font-size: 14px;
+    }
+    .big-modal__close-btn {
+        top: 16px;
+        right: 10px;
+    }
+    .rented-books__title {
+        font-size: 20px;
+    }
+    .modal-profile__text {
+        font-size: 16px;
+    }
+    .modal-profile__title {
+        margin-bottom: 30px;
+    }
+    .modal-profile {
+        grid-template-columns: 1fr;
+    }
+    .modal-profile__info-box {
+        justify-content: center;
+    }
+    .info-box__card p {
+        font-size: 13px;
+    }
+    .modal-profile__avatar-wrapper {
+        order: 1;
+        padding: 20px;
+    }
+    .modal-profile__info-box, .rented-books__title, .modal-profile__rented-books {
+        margin-bottom: 20px;
+    }
+}
