@@ -6,6 +6,7 @@ const input = document.querySelector('.search-input')
 const imageContainer = document.querySelector('.image-container')
 const listItemsArray = document.querySelectorAll('.list-item')
 
+
 /* clear search */
 clearBtn.addEventListener('click', ()=> {
   input.value = ''
@@ -13,11 +14,24 @@ clearBtn.addEventListener('click', ()=> {
 
 /* API */
 let url = 'https://api.unsplash.com/search/photos?query=winter&per_page=18&orientation=landscape&client_id=j5Yspgdlp2VF8Zac_gnLgdx9eeKKn-WA9RJ6rNlsUms'
+
 async function getData() {
-  const res = await fetch(url);
-  const data = await res.json();
-  showData(data)
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if(data.total == 0) {
+      console.log(data);
+      console.log('There are no any results');
+      const messageNoRes = '<p class="message">There are no results for your request...</p>'
+      imageContainer.insertAdjacentHTML('afterbegin', messageNoRes)
+    } else {
+      showData(data)
+    }
+  } catch (error) {
+    console.log(error);
+  }  
 }
+
 getData();
 
 function showData(data) {
@@ -39,6 +53,18 @@ document.addEventListener('keydown', (e)=> {
     let query = input.value
     url = `https://api.unsplash.com/search/photos?query=${query}&per_page=18&orientation=landscape&client_id=j5Yspgdlp2VF8Zac_gnLgdx9eeKKn-WA9RJ6rNlsUms`
     getData()
+  }
+})
+
+/* search by icon 'search' */
+const searchIcon = document.querySelector('.search')
+searchIcon.addEventListener('click', ()=> {
+  if(input.value !== '') {
+    clearGallery()
+    let query = input.value
+    url = `https://api.unsplash.com/search/photos?query=${query}&per_page=18&orientation=landscape&client_id=j5Yspgdlp2VF8Zac_gnLgdx9eeKKn-WA9RJ6rNlsUms`
+    getData()
+
   }
 })
 
