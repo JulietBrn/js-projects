@@ -1,5 +1,12 @@
 ⭐⭐⭐ I present to you a set of super-interesting projects on design and layout practice from the IT school [The Rolling Scopes School](https://rs.school/js-stage0/) ⭐⭐⭐
 
+1. [Library](#Library)
+2. [Memory-game](#Memory-game)
+3. [Audio-player](#Audio-player)
+4. [Image-gallery](#Image-gallery)
+
+
+
 ---
 ## Library
 [>>>TRY IT!👌](https://julietbrn.github.io/js-projects/library/)
