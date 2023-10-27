@@ -552,10 +552,14 @@ button {
 .contacts__map {
     max-width: 696px;
 }
-.contacts__map img {
+.contacts__map {
     max-width: 100%;
     margin: 0 15px;
 }
+.map {
+    width: 100%;
+}
+
 
 /* digital-library-cards */
 .lib-cards-wrapper {
