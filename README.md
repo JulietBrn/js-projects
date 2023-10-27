@@ -1,8 +1,8 @@
 ⭐⭐⭐ I present to you a set of super-interesting projects on design and layout practice from the IT school [The Rolling Scopes School](https://rs.school/js-stage0/) ⭐⭐⭐
 
-
+---
 ## Library
-[TRY IT!👌](https://julietbrn.github.io/js-projects/library/)
+[>>>TRY IT!👌](https://julietbrn.github.io/js-projects/library/)
 ### Key skills:
 - valid semantic adaptive layout
 - easy to maintain readable code
@@ -14,7 +14,7 @@
 
 ---
 ## Memory-game
-[PLAY!😁](https://julietbrn.github.io/js-projects/random-game/)
+[>>>PLAY!😁](https://julietbrn.github.io/js-projects/random-game/)
 
 Creating computer games is a separate area of programming that requires highly qualified developers. Computer games can be created by large companies, small teams, and even individual developers.
 
@@ -25,7 +25,7 @@ Memory-game is a set of pairs of identical cards, which are displayed face down.
 
 ---
 ## Audio-player
-[ENJOY IT!👍](https://julietbrn.github.io/js-projects/audio-player/)
+[>>>ENJOY IT!👍](https://julietbrn.github.io/js-projects/audio-player/)
 ### Project Description
 A music player that allows you to play music tracks one by one or scroll through them by clicking on the buttons. Each music track has a specific background image.
 
@@ -34,7 +34,7 @@ A music player that allows you to play music tracks one by one or scroll through
 
 ---
 ## Image-gallery
-[TRY IT!💜](https://julietbrn.github.io/js-projects/image-gallery/)
+[>>>TRY IT!💜](https://julietbrn.github.io/js-projects/image-gallery/)
 The application that displays photos received from the API. Added search to the application. When you enter a search query, change the photos that are displayed in the application
 
 ![Alt text](<Screenshot 2023-09-30 125048.png>)
